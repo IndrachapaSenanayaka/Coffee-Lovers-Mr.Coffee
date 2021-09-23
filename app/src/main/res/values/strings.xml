@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Mr.Coffee</string>
+    <string name="signin_head_text">Welcome Back</string>
+    <string name="auth_email_label">Email</string>
+    <string name="auth_password_label">Password</string>
+    <string name="signin_button_text">Sign In</string>
+    <string name="facebook_btn_txt">Facebook</string>
+    <string name="google_btn_txt">Google</string>
+    <string name="signin_bottom_line">Still does not have an account?</string>
+    <string name="signup_btn_txt">Sign Up</string>
+    <string name="auth_confirm_pw_label">Confirm Passowrd</string>
+    <string name="auth_birthday_lbl">Birthday</string>
+    <string name="auth_phone_lbl">Phone Number</string>
+    <string name="signup_head">Welcome To Taste</string>
+    <string name="auth_fname_lbl">First Name</string>
+    <string name="auth_lname_lbl">Last Name</string>
+    <string name="signup_bottom_line">Already have an account?</string>
+    <string name="cus_view_head">Hello John!</string>
 </resources>
