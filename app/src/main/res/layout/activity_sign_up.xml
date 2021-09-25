@@ -214,17 +214,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/button4" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_signup" />
 
         <Button
             android:fontFamily="@font/submit_button"
-            android:id="@+id/button4"
+            android:id="@+id/btn_signup"
             style="@style/AuthButton"
             android:layout_width="166dp"
             android:layout_height="39dp"
             android:layout_gravity="center"
             android:layout_marginTop="400dp"
             android:text="@string/signup_btn_txt"
+            android:onClick="onSignUpClick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
@@ -245,7 +246,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_signup" />
 
         <TextView
             android:id="@+id/textView9"
