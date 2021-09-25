@@ -4,7 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/espresso</item>
         <item name="colorPrimaryDark">@color/darkbrown</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">#384FE6</item>
     </style>
 
     <style name="AuthButton">

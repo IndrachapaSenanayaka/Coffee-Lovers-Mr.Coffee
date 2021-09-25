@@ -8,11 +8,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <EditText
             android:fontFamily="@font/form_labels"
-            android:id="@+id/editTextTextPersonName9"
+            android:id="@+id/txt_confirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -21,7 +21,7 @@
             android:ems="10"
             android:hint="@string/auth_confirm_pw_label"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,11 +36,11 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_confirm_pw_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_password" />
 
         <EditText
             android:fontFamily="@font/form_labels"
-            android:id="@+id/editTextTextPersonName8"
+            android:id="@+id/txt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -48,7 +48,7 @@
             android:layout_marginEnd="25dp"
             android:ems="10"
             android:hint="@string/auth_password_label"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_password_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+            app:layout_constraintTop_toBottomOf="@+id/rg_gender" />
 
         <TextView
             android:id="@+id/textView13"
@@ -75,11 +75,22 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_birthday_lbl"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_phoneNumber" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/form_labels"
+            android:text="Gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_birthday" />
 
         <EditText
             android:fontFamily="@font/form_labels"
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/txt_phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -103,7 +114,7 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_phone_lbl"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_email" />
 
         <TextView
             android:id="@+id/textView6"
@@ -129,7 +140,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/txt_firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -153,11 +164,11 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_lname_lbl"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_firstName" />
 
         <EditText
             android:fontFamily="@font/form_labels"
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/txt_lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -180,11 +191,11 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_email_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_lastName" />
 
         <EditText
             android:fontFamily="@font/form_labels"
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -192,7 +203,7 @@
             android:layout_marginEnd="25dp"
             android:ems="10"
             android:hint="@string/auth_email_label"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -217,18 +228,18 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_signup" />
 
         <Button
-            android:fontFamily="@font/submit_button"
             android:id="@+id/btn_signup"
             style="@style/AuthButton"
             android:layout_width="166dp"
             android:layout_height="39dp"
             android:layout_gravity="center"
-            android:layout_marginTop="400dp"
-            android:text="@string/signup_btn_txt"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/submit_button"
             android:onClick="onSignUpClick"
+            android:text="@string/signup_btn_txt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_confirmPassword" />
 
 
         <Button
@@ -276,21 +287,58 @@
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/button5" />
 
-        <EditText
-            android:fontFamily="@font/form_labels"
-            android:id="@+id/editTextDate"
+        <TextView
+            android:id="@+id/txt_birthday"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="25dp"
+            android:clickable="true"
             android:ems="10"
-            android:hint="@string/auth_birthday_lbl"
+            android:fontFamily="@font/form_labels"
             android:importantForAutofill="no"
-            android:inputType="date"
+            android:onClick="onBirthdayPickClick"
+            android:text="Click to pick a date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <RadioGroup
+            android:id="@+id/rg_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22">
+
+                <RadioButton
+                    android:id="@+id/rb_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="5dp"
+                    android:checked="true"
+                    android:layout_weight="1"
+                    android:text="Male"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <RadioButton
+                    android:id="@+id/rb_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    android:text="Female"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+        </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

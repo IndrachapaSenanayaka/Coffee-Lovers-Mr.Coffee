@@ -15,11 +15,11 @@
         android:fontFamily="@font/form_labels"
         android:text="@string/auth_birthday_lbl"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_phoneNumber" />
 
     <EditText
         android:fontFamily="@font/form_labels"
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/txt_phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -43,7 +43,7 @@
         android:fontFamily="@font/form_labels"
         android:text="@string/auth_phone_lbl"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_lastName" />
 
     <TextView
         android:id="@+id/textView6"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/txt_firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -92,11 +92,11 @@
         android:fontFamily="@font/form_labels"
         android:text="@string/auth_lname_lbl"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_firstName" />
 
     <EditText
         android:fontFamily="@font/form_labels"
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/txt_lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -142,7 +142,7 @@
 
     <EditText
         android:fontFamily="@font/form_labels"
-        android:id="@+id/editTextDate"
+        android:id="@+id/txt_birthday"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
