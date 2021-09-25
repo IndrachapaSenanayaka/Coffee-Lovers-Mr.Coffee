@@ -10,26 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FavouritesActivity"
+            android:name=".ui.customer.FavouritesActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".CustomerChangePasswordActivity"
+            android:name=".ui.customer.CustomerChangePasswordActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".CustomerEditProfileActivity"
+            android:name=".ui.customer.CustomerEditProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".CustomerProfileActivity"
+            android:name=".ui.customer.CustomerProfileActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".SignInActivity"
+            android:name=".ui.SignInActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".ui.SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

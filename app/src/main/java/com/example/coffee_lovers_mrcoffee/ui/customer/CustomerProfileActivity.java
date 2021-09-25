@@ -1,8 +1,10 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.ui.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.coffee_lovers_mrcoffee.R;
 
 public class CustomerProfileActivity extends AppCompatActivity {
 
