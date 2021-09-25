@@ -125,6 +125,14 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
+    // sign in link click handler
+    public void onSignInLinkClick(View v) {
+        Intent intent = new Intent(this, SignInActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+
     // ---- MECHANISMS
 
     private boolean checkFields() {

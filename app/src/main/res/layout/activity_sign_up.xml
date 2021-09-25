@@ -282,6 +282,8 @@
             android:layout_marginTop="48dp"
             android:text="@string/signin_button_text"
             android:textColor="@color/link_text"
+            android:clickable="true"
+            android:onClick="onSignInLinkClick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView9"
