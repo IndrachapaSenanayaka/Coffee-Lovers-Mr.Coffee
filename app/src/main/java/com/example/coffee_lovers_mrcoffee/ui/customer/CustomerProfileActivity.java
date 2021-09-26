@@ -2,7 +2,10 @@ package com.example.coffee_lovers_mrcoffee.ui.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.coffee_lovers_mrcoffee.Container;
@@ -10,6 +13,7 @@ import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
@@ -45,7 +49,11 @@ public class CustomerProfileActivity extends AppCompatActivity {
         // listen for current user changes
         currentUserDisposer = authService
                 .currentUser
-                .subscribe(this::ListenUserChanges);
+                .subscribe(
+                        this::ListenUserChanges,
+                        throwable -> {
+                            System.err.println("Error while receiving customer data" + throwable);
+                        });
     }
 
 
@@ -53,7 +61,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        // remove listners
+        // remove listeners
         currentUserDisposer.dispose();
     }
 
@@ -68,8 +76,15 @@ public class CustomerProfileActivity extends AppCompatActivity {
         txt_lastName.setText(customer.lastName);
         txt_email.setText(customer.email);
         txt_phone.setText(customer.phoneNumber);
-        txt_birthday.setText(DateTimeFormatter.ISO_LOCAL_DATE.format(LocalDate.parse(customer.birthday.toString())));
+        txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
 
+    }
+
+
+    // edit profile button click handler
+    public void onEditProfileButtonClick(View v) {
+        Intent intent = new Intent(this, CustomerEditProfileActivity.class);
+        startActivity(intent);
     }
 
 }

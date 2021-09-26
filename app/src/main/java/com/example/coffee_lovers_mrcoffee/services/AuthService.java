@@ -15,19 +15,22 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 
 import java.util.Objects;
 
+import io.reactivex.rxjava3.subjects.BehaviorSubject;
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
 public class AuthService {
 
     private final FirebaseAuth fAuth;
     private final FirebaseFirestore fireStore;
+    private ListenerRegistration userDataListener;
 
     private final String KEY_COLLECTION_CUSTOMERS = "customers";
 
-    public PublishSubject<Customer> currentUser = PublishSubject.create();
+    public BehaviorSubject<Customer> currentUser = BehaviorSubject.create();
 
     public AuthService() {
         fAuth = FirebaseAuth.getInstance();
@@ -42,26 +45,31 @@ public class AuthService {
      */
     private void TrackCurrentUser() {
 
-        FirebaseUser fUser = fAuth.getCurrentUser();
+        fAuth.addAuthStateListener(firebaseAuth -> {
+            FirebaseUser fUser1 = fAuth.getCurrentUser();
 
-        if (fUser == null) {
-            currentUser.onNext(null);
-        } else {
+            if (fUser1 == null) {
+                currentUser.onNext(null);
+                userDataListener.remove();
+            } else {
+                TrackCurrentUser(fUser1.getUid());
+            }
+        });
 
-            fireStore.collection(KEY_COLLECTION_CUSTOMERS)
-                    .document(fUser.getUid())
-                    .addSnapshotListener((value, error) -> {
-                        if (error != null) {
-                            System.err.println("Current user error: " + error);
-                        } else {
-                            currentUser.onNext(value.toObject(Customer.class));
-                        }
+    }
 
-                        System.out.println("Current user changes: " + (fUser == null ? "NULL" : fUser.getUid()));
-                    });
 
-        }
-
+    private void TrackCurrentUser(String userId) {
+        userDataListener = fireStore.collection(KEY_COLLECTION_CUSTOMERS)
+                .document(userId)
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        System.err.println("Current user error: " + error);
+                        currentUser.onError(error);
+                    } else {
+                        currentUser.onNext(value.toObject(Customer.class));
+                    }
+                });
     }
 
 
