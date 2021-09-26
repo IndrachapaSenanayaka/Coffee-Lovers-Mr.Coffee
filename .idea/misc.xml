@@ -8,13 +8,13 @@
         <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_customer_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_favourites.xml" value="0.25416666666666665" />
         <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_sign_in.xml" value="0.536" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_sign_in.xml" value="0.4" />
         <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
         <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/fragment_labeled_input.xml" value="0.42397914856646396" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

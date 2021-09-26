@@ -12,7 +12,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -21,14 +20,14 @@ import com.example.coffee_lovers_mrcoffee.data.enums.Gender;
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
+import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.subjects.PublishSubject;
@@ -39,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
     private final AuthService authService = new AuthService();
     private final BirthdayPickerFragment birthdayPicker = new BirthdayPickerFragment();
     private Disposable birthdayChangesDisposer;
+    private ValidationUtils validationUtils = new ValidationUtils();
 
     private LocalDate birthday = null;
 
@@ -100,7 +100,8 @@ public class SignUpActivity extends AppCompatActivity {
         authService.SignUp(cus,
                 task -> {
                     if(task.isSuccessful()) {
-                        Intent intent = new Intent(this, CustomerProfileActivity.class);
+                        Intent intent = new Intent(SignUpActivity.this, CustomerProfileActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     } else {
                         Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -137,13 +138,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     private boolean checkFields() {
 
-        if (
-                isEmpty(txt_phoneNumber, "Phone number is required")
-                        || isEmpty(txt_firstName, "First name is required")
-                        || isEmpty(txt_lastName, "Last name is required")
-                        || isEmpty(txt_password, "Password is required")
-                        || isEmpty(txt_email, "First name is required")
-        ) {
+        Map<EditText, String> textBoxes = new HashMap();
+        textBoxes.put(txt_phoneNumber, "Phone number is required");
+        textBoxes.put(txt_firstName, "First name is required");
+        textBoxes.put(txt_lastName, "Last name is required");
+        textBoxes.put(txt_password, "Password is required");
+        textBoxes.put(txt_email, "Email is required");
+
+        if (validationUtils.isAnyEmpty(textBoxes)) {
             return false;
         } else if(!txt_password.getText().toString().equals(txt_confirmPassword.getText().toString())) {
             txt_confirmPassword.setError("Two passwords do not match");

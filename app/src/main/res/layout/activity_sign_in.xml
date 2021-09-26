@@ -38,11 +38,11 @@
         android:fontFamily="@font/form_labels"
         android:text="@string/auth_password_label"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_signin_email" />
 
     <EditText
         android:fontFamily="@font/form_labels"
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txt_signin_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -51,14 +51,14 @@
         android:ems="10"
         android:hint="@string/auth_email_label"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_LBL" />
 
     <EditText
         android:fontFamily="@font/form_labels"
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/txt_signin_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -67,22 +67,23 @@
         android:ems="10"
         android:hint="@string/auth_password_label"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:fontFamily="@font/submit_button"
-        style="@style/AuthButton"
         android:id="@+id/button"
+        style="@style/AuthButton"
         android:layout_width="166dp"
         android:layout_height="39dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/submit_button"
         android:text="@string/signin_button_text"
+        android:onClick="onSignInClick"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:fontFamily="@font/submit_button"
