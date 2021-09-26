@@ -7,7 +7,7 @@
     tools:context=".ui.SignInActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_fullName"
         android:layout_width="248dp"
         android:layout_height="42dp"
         android:layout_marginStart="25dp"
@@ -27,7 +27,7 @@
         android:fontFamily="@font/form_labels"
         android:text="@string/auth_email_label"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_fullName" />
 
     <TextView
         android:id="@+id/textView3"
