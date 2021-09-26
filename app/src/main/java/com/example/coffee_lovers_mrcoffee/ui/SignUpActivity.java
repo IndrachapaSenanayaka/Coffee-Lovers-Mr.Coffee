@@ -57,9 +57,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         // init controllers
         txt_birthday = findViewById(R.id.txt_birthday);
-        txt_phoneNumber = findViewById(R.id.txt_phoneNumber);
-        txt_firstName = findViewById(R.id.txt_firstName);
-        txt_lastName = findViewById(R.id.txt_lastName);
+        txt_phoneNumber = findViewById(R.id.txt_edit_phoneNumber);
+        txt_firstName = findViewById(R.id.txt_edit_firstName);
+        txt_lastName = findViewById(R.id.txt_edit_lastName);
         txt_password = findViewById(R.id.txt_password);
         txt_email = findViewById(R.id.txt_email);
         txt_confirmPassword = findViewById(R.id.txt_confirmPassword);

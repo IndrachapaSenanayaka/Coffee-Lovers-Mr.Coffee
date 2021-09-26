@@ -1,32 +1,27 @@
 package com.example.coffee_lovers_mrcoffee.services;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
 
 import java.util.Objects;
 
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
-import io.reactivex.rxjava3.subjects.PublishSubject;
 
 public class AuthService {
 
     private final FirebaseAuth fAuth;
     private final FirebaseFirestore fireStore;
     private ListenerRegistration userDataListener;
+    private FirebaseUser firebaseCUser;
 
     private final String KEY_COLLECTION_CUSTOMERS = "customers";
 
@@ -46,19 +41,22 @@ public class AuthService {
     private void TrackCurrentUser() {
 
         fAuth.addAuthStateListener(firebaseAuth -> {
-            FirebaseUser fUser1 = fAuth.getCurrentUser();
+            firebaseCUser = fAuth.getCurrentUser();
 
-            if (fUser1 == null) {
+            if (firebaseCUser == null) {
                 currentUser.onNext(null);
                 userDataListener.remove();
             } else {
-                TrackCurrentUser(fUser1.getUid());
+                TrackCurrentUser(firebaseCUser.getUid());
             }
         });
 
     }
 
 
+    /**
+     * Track current user data
+     */
     private void TrackCurrentUser(String userId) {
         userDataListener = fireStore.collection(KEY_COLLECTION_CUSTOMERS)
                 .document(userId)
@@ -128,6 +126,24 @@ public class AuthService {
                     }
                 })
                 .addOnFailureListener(e -> onFailure.onFailure(e));
+
+    }
+
+
+    /**
+     * Update current user data
+     */
+    public void UpdateCurrentUser(Customer customer, OnCompleteListener onComplete, OnFailureListener onFailure) {
+
+        fireStore.collection(KEY_COLLECTION_CUSTOMERS)
+                .document(firebaseCUser.getUid())
+                .set(customer)
+                .addOnCompleteListener(task -> {
+                    onComplete.onComplete(null);
+                })
+                .addOnFailureListener(e -> {
+                    onFailure.onFailure(e);
+                });
 
     }
 

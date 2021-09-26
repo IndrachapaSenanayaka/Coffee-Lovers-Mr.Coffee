@@ -6,20 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.customer.CustomerEditProfileActivity">
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/form_labels"
-        android:text="@string/auth_birthday_lbl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_phoneNumber" />
-
     <EditText
         android:fontFamily="@font/form_labels"
-        android:id="@+id/txt_phoneNumber"
+        android:id="@+id/txt_edit_phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -28,7 +17,7 @@
         android:ems="10"
         android:hint="@string/auth_phone_lbl"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +32,7 @@
         android:fontFamily="@font/form_labels"
         android:text="@string/auth_phone_lbl"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_lastName" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_edit_lastName" />
 
     <TextView
         android:id="@+id/textView6"
@@ -68,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/txt_firstName"
+        android:id="@+id/txt_edit_firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -92,11 +81,11 @@
         android:fontFamily="@font/form_labels"
         android:text="@string/auth_lname_lbl"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_firstName" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_edit_firstName" />
 
     <EditText
         android:fontFamily="@font/form_labels"
-        android:id="@+id/txt_lastName"
+        android:id="@+id/txt_edit_lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -120,6 +109,7 @@
         android:background="#FFF"
         android:fontFamily="@font/submit_button"
         android:text="Cancel"
+        android:onClick="onCancelClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -135,25 +125,10 @@
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/submit_button"
         android:text="Save Changes"
+        android:onClick="onSaveChangesCLick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:fontFamily="@font/form_labels"
-        android:id="@+id/txt_birthday"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="25dp"
-        android:ems="10"
-        android:hint="@string/auth_birthday_lbl"
-        android:importantForAutofill="no"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -75,7 +75,7 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_birthday_lbl"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_phoneNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_edit_phoneNumber" />
 
         <TextView
             android:id="@+id/textView22"
@@ -90,7 +90,7 @@
 
         <EditText
             android:fontFamily="@font/form_labels"
-            android:id="@+id/txt_phoneNumber"
+            android:id="@+id/txt_edit_phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -140,7 +140,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <EditText
-            android:id="@+id/txt_firstName"
+            android:id="@+id/txt_edit_firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -164,11 +164,11 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_lname_lbl"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_firstName" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_edit_firstName" />
 
         <EditText
             android:fontFamily="@font/form_labels"
-            android:id="@+id/txt_lastName"
+            android:id="@+id/txt_edit_lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -191,7 +191,7 @@
             android:fontFamily="@font/form_labels"
             android:text="@string/auth_email_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lastName" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_edit_lastName" />
 
         <EditText
             android:fontFamily="@font/form_labels"
