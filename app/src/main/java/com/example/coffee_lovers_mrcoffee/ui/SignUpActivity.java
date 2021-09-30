@@ -101,7 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
                 task -> {
                     if(task.isSuccessful()) {
                         Intent intent = new Intent(SignUpActivity.this, CustomerProfileActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     } else {
                         Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -129,7 +129,7 @@ public class SignUpActivity extends AppCompatActivity {
     // sign in link click handler
     public void onSignInLinkClick(View v) {
         Intent intent = new Intent(this, SignInActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 

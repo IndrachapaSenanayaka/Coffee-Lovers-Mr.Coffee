@@ -7,6 +7,9 @@ import java.util.Date;
 
 public class Customer {
 
+    public static final Customer NULL = new Customer();
+
+
     public String id;
     public String firstName;
     public String lastName;

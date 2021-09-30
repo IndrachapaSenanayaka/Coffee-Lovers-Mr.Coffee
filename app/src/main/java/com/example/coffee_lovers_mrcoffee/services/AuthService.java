@@ -44,8 +44,9 @@ public class AuthService {
             firebaseCUser = fAuth.getCurrentUser();
 
             if (firebaseCUser == null) {
-                currentUser.onNext(null);
-                userDataListener.remove();
+                currentUser.onNext(Customer.NULL);
+                if (userDataListener != null)
+                    userDataListener.remove();
             } else {
                 TrackCurrentUser(firebaseCUser.getUid());
             }
@@ -83,7 +84,6 @@ public class AuthService {
                         customer.id = Objects.requireNonNull(task.getResult()).getUser().getUid();
                         CreateUserData(customer, task1 -> {
                             if (task1.isSuccessful()) {
-                                TrackCurrentUser();
                                 onComplete.onComplete(Tasks.forResult(null));
                             } else {
                                 fAuth.signOut();
@@ -120,7 +120,6 @@ public class AuthService {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         onComplete.onComplete(Tasks.forResult(null));
-                        TrackCurrentUser();
                     } else {
                         onFailure.onFailure(task.getException());
                     }
@@ -144,6 +143,24 @@ public class AuthService {
                 .addOnFailureListener(e -> {
                     onFailure.onFailure(e);
                 });
+
+    }
+
+
+    /**
+     * Sign out current user
+     */
+    public void SignOut() {
+        fAuth.signOut();
+    }
+
+
+    /**
+     * Delete current user account
+     */
+    public void DeleteAccount() {
+
+        // first delete
 
     }
 

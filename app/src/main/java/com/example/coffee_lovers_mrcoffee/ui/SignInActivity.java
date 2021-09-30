@@ -49,7 +49,7 @@ public class SignInActivity extends AppCompatActivity {
     // handle sign up link click
     public void onSignUpLinkClick(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
@@ -65,7 +65,7 @@ public class SignInActivity extends AppCompatActivity {
                 txt_email.getText().toString(), txt_password.getText().toString(),
                 task -> {
                     Intent intent = new Intent(SignInActivity.this, CustomerProfileActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 },
                 e -> Toast.makeText(SignInActivity.this, e.getMessage(),Toast.LENGTH_LONG).show()

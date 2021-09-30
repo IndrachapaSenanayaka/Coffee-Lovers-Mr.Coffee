@@ -2,7 +2,6 @@ package com.example.coffee_lovers_mrcoffee.ui.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,14 +11,11 @@ import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
+import com.example.coffee_lovers_mrcoffee.ui.SignInActivity;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
 
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
 
 public class CustomerProfileActivity extends AppCompatActivity {
 
@@ -50,7 +46,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
         currentUserDisposer = authService
                 .currentUser
                 .subscribe(
-                        this::ListenUserChanges,
+                        this::onUserChanges,
                         throwable -> {
                             System.err.println("Error while receiving customer data" + throwable);
                         });
@@ -68,15 +64,26 @@ public class CustomerProfileActivity extends AppCompatActivity {
 
     // ---- EVENTS
 
-    // current user changes listners
-    private void ListenUserChanges(Customer customer) {
+    // current user changes listeners
+    private void onUserChanges(Customer customer) {
 
-        // update fields
-        txt_firstName.setText(customer.firstName);
-        txt_lastName.setText(customer.lastName);
-        txt_email.setText(customer.email);
-        txt_phone.setText(customer.phoneNumber);
-        txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
+        // logout if user is null
+        if(customer == Customer.NULL) {
+
+            Intent intent = new Intent(this, SignInActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+
+        } else {
+
+            // update fields
+            txt_firstName.setText(customer.firstName);
+            txt_lastName.setText(customer.lastName);
+            txt_email.setText(customer.email);
+            txt_phone.setText(customer.phoneNumber);
+            txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
+
+        }
 
     }
 
@@ -85,6 +92,12 @@ public class CustomerProfileActivity extends AppCompatActivity {
     public void onEditProfileButtonClick(View v) {
         Intent intent = new Intent(this, CustomerEditProfileActivity.class);
         startActivity(intent);
+    }
+
+
+    // sign out button click
+    public void onSignOutClick(View v) {
+        authService.SignOut();
     }
 
 }
