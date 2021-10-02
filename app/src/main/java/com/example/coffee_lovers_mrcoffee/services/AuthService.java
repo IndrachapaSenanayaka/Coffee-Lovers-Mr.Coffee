@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -66,7 +65,11 @@ public class AuthService {
                         System.err.println("Current user error: " + error);
                         currentUser.onError(error);
                     } else {
-                        currentUser.onNext(value.toObject(Customer.class));
+                        Customer customer = value != null ? value.toObject(Customer.class) : null;
+                        if (customer == null)
+                            currentUser.onNext(Customer.NULL);
+                        else
+                            currentUser.onNext(customer);
                     }
                 });
     }
@@ -75,23 +78,25 @@ public class AuthService {
     /**
      * Sign up a new user using Email and Password
      */
-    public void SignUp(@NonNull Customer customer, OnCompleteListener onComplete, OnFailureListener onFailure) {
+    public void SignUp(@NonNull Customer customer, OnCompleteListener<Void> onComplete, OnFailureListener onFailure) {
 
         // auth using firebase auth
         fAuth.createUserWithEmailAndPassword(customer.email, customer.password)
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        customer.id = Objects.requireNonNull(task.getResult()).getUser().getUid();
+                    if (task.isSuccessful() && task.getResult() != null && task.getResult().getUser() != null) {
+                        customer.id = task.getResult().getUser().getUid();
                         CreateUserData(customer, task1 -> {
                             if (task1.isSuccessful()) {
-                                onComplete.onComplete(Tasks.forResult(null));
-                            } else {
+                                SignIn(customer.email, customer.password,
+                                        task2 -> onComplete.onComplete(Tasks.forResult(null)),
+                                        onFailure);
+                            } else if(task1.getException() != null) {
                                 fAuth.signOut();
                                 onFailure.onFailure(task1.getException());
                             }
                         });
                     } else {
-                        onFailure.onFailure(task.getException());
+                        onFailure.onFailure(Objects.requireNonNull(task.getException()));
                     }
                 });
 
@@ -101,7 +106,7 @@ public class AuthService {
     /**
      * Create user data
      */
-    private void CreateUserData(Customer cus, OnCompleteListener onComplete) {
+    private void CreateUserData(Customer cus, OnCompleteListener<Void> onComplete) {
 
         fireStore.collection(KEY_COLLECTION_CUSTOMERS)
                 .document(cus.id)
@@ -114,17 +119,17 @@ public class AuthService {
     /**
      * Sign in with email and password
      */
-    public void SignIn(String email, String password, OnCompleteListener onComplete, OnFailureListener onFailure) {
+    public void SignIn(String email, String password, OnCompleteListener<Void> onComplete, OnFailureListener onFailure) {
 
         fAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         onComplete.onComplete(Tasks.forResult(null));
-                    } else {
+                    } else if(task.getException() != null) {
                         onFailure.onFailure(task.getException());
                     }
                 })
-                .addOnFailureListener(e -> onFailure.onFailure(e));
+                .addOnFailureListener(onFailure);
 
     }
 
@@ -132,17 +137,13 @@ public class AuthService {
     /**
      * Update current user data
      */
-    public void UpdateCurrentUser(Customer customer, OnCompleteListener onComplete, OnFailureListener onFailure) {
+    public void UpdateCurrentUser(Customer customer, OnCompleteListener<Void> onComplete, OnFailureListener onFailure) {
 
         fireStore.collection(KEY_COLLECTION_CUSTOMERS)
                 .document(firebaseCUser.getUid())
                 .set(customer)
-                .addOnCompleteListener(task -> {
-                    onComplete.onComplete(null);
-                })
-                .addOnFailureListener(e -> {
-                    onFailure.onFailure(e);
-                });
+                .addOnCompleteListener(task -> onComplete.onComplete(Tasks.forResult(null)))
+                .addOnFailureListener(onFailure);
 
     }
 
@@ -158,10 +159,22 @@ public class AuthService {
     /**
      * Delete current user account
      */
-    public void DeleteAccount() {
+    public void DeleteAccount(OnCompleteListener<Void> onComplete) {
+        if(fAuth.getUid() == null)
+            return;
 
-        // first delete
-
+        // first delete account data
+        fireStore
+                .collection(KEY_COLLECTION_CUSTOMERS)
+                .document(fAuth.getUid())
+                .delete()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        firebaseCUser
+                                .delete()
+                                .addOnCompleteListener(task1 -> onComplete.onComplete(Tasks.forResult(null)));
+                    }
+                });
     }
 
 }

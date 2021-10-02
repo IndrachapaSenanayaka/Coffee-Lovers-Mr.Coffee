@@ -1,8 +1,5 @@
 package com.example.coffee_lovers_mrcoffee.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -10,22 +7,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
 import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class SignInActivity extends AppCompatActivity {
 
-    // dependancies
-    private Container container = Container.instant();
+    // dependencies
+    private final Container container = Container.instant();
     private final ValidationUtils validationUtils = container.validationUtils;
     private final AuthService authService = container.authService;
 

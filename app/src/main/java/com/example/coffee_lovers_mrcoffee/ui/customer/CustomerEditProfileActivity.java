@@ -1,24 +1,18 @@
 package com.example.coffee_lovers_mrcoffee.ui.customer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,9 +49,7 @@ public class CustomerEditProfileActivity extends AppCompatActivity {
                 .currentUser
                 .subscribe(
                         this::ListenUserChanges,
-                        throwable -> {
-                            System.err.println("Error while receiving customer data" + throwable);
-                        });
+                        throwable -> System.err.println("Error while receiving customer data" + throwable));
     }
 
 
@@ -103,9 +95,7 @@ public class CustomerEditProfileActivity extends AppCompatActivity {
                     // go back
                     CustomerEditProfileActivity.this.finish();
                 },
-                e -> {
-                    Toast.makeText(CustomerEditProfileActivity.this, "Update failed", Toast.LENGTH_LONG).show();
-                }
+                e -> Toast.makeText(CustomerEditProfileActivity.this, "Update failed", Toast.LENGTH_LONG).show()
         );
 
     }

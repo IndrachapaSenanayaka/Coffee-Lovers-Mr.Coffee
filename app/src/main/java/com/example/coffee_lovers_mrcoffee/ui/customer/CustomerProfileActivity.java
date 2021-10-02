@@ -2,6 +2,7 @@ package com.example.coffee_lovers_mrcoffee.ui.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,9 @@ public class CustomerProfileActivity extends AppCompatActivity {
     // disposals
     private Disposable currentUserDisposer;
 
+    // detects if the current user is being deleted
+    private boolean deleteMode = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +51,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
                 .currentUser
                 .subscribe(
                         this::onUserChanges,
-                        throwable -> {
-                            System.err.println("Error while receiving customer data" + throwable);
-                        });
+                        throwable -> System.err.println("Error while receiving customer data" + throwable));
     }
 
 
@@ -65,14 +67,15 @@ public class CustomerProfileActivity extends AppCompatActivity {
     // ---- EVENTS
 
     // current user changes listeners
+    @SuppressLint("SimpleDateFormat")
     private void onUserChanges(Customer customer) {
+        if(deleteMode)
+            return;
 
         // logout if user is null
         if(customer == Customer.NULL) {
 
-            Intent intent = new Intent(this, SignInActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+            goToSignIn();
 
         } else {
 
@@ -84,7 +87,12 @@ public class CustomerProfileActivity extends AppCompatActivity {
             txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
 
         }
+    }
 
+    private void goToSignIn() {
+        Intent intent = new Intent(this, SignInActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 
@@ -98,6 +106,17 @@ public class CustomerProfileActivity extends AppCompatActivity {
     // sign out button click
     public void onSignOutClick(View v) {
         authService.SignOut();
+    }
+
+
+    // delete button click
+    public void onDeleteButtonClick(View v) {
+        deleteMode = true;
+
+        authService.DeleteAccount(task -> {
+            deleteMode = false;
+            goToSignIn();
+        });
     }
 
 }

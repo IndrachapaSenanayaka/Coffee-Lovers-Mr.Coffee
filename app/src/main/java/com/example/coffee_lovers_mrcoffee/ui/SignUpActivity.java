@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -38,17 +39,12 @@ public class SignUpActivity extends AppCompatActivity {
     private final AuthService authService = new AuthService();
     private final BirthdayPickerFragment birthdayPicker = new BirthdayPickerFragment();
     private Disposable birthdayChangesDisposer;
-    private ValidationUtils validationUtils = new ValidationUtils();
+    private final ValidationUtils validationUtils = new ValidationUtils();
 
     private LocalDate birthday = null;
 
     private TextView txt_birthday;
-    private EditText txt_phoneNumber;
-    private EditText txt_firstName;
-    private EditText txt_lastName;
-    private EditText txt_password;
-    private EditText txt_email;
-    private EditText txt_confirmPassword;
+    private EditText txt_phoneNumber, txt_firstName, txt_lastName, txt_password, txt_email, txt_confirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,13 +99,11 @@ public class SignUpActivity extends AppCompatActivity {
                         Intent intent = new Intent(SignUpActivity.this, CustomerProfileActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
-                    } else {
+                    } else if (task.getException() != null) {
                         Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 },
-                e -> {
-                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-                });
+                e -> Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show());
 
     }
 
@@ -138,7 +132,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private boolean checkFields() {
 
-        Map<EditText, String> textBoxes = new HashMap();
+        Map<EditText, String> textBoxes = new HashMap<>();
         textBoxes.put(txt_phoneNumber, "Phone number is required");
         textBoxes.put(txt_firstName, "First name is required");
         textBoxes.put(txt_lastName, "Last name is required");
@@ -163,16 +157,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-    private boolean isEmpty(EditText textBox, String errorMsg) {
-        if (textBox.getText().length() == 0) {
-            textBox.setError(errorMsg);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
     // ---- LOWER LEVEL CLASSES
 
     public static class BirthdayPickerFragment extends DialogFragment
@@ -180,6 +164,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         public Subject<LocalDate> birthday = PublishSubject.create();
 
+        @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current date as the default date in the picker

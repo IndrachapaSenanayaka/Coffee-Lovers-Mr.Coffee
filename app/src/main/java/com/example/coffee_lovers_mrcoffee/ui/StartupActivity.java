@@ -30,22 +30,19 @@ public class StartupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_startup);
 
         // check if customer is already logged in
-        customerListener = authService.currentUser.subscribe(new Consumer<Customer>() {
-            @Override
-            public void accept(Customer customer) throws Throwable {
+        customerListener = authService.currentUser.subscribe(customer -> {
 
-                Intent intent;
+            Intent intent;
 
-                if (customer == null) {
-                    intent = new Intent(StartupActivity.this, SignInActivity.class);
-                } else {
-                    intent = new Intent(StartupActivity.this, CustomerProfileActivity.class);
-                }
-
-                startActivity(intent);
-                finish();
-
+            if (customer == null) {
+                intent = new Intent(StartupActivity.this, SignInActivity.class);
+            } else {
+                intent = new Intent(StartupActivity.this, CustomerProfileActivity.class);
             }
+
+            startActivity(intent);
+            finish();
+
         });
 
     }
