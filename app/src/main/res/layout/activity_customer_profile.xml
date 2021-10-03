@@ -228,6 +228,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="Change Password"
+            android:onClick="onChangePasswordButtonClick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button7"

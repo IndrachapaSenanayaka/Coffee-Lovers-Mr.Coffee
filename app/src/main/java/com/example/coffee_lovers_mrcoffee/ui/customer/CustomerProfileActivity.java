@@ -119,4 +119,13 @@ public class CustomerProfileActivity extends AppCompatActivity {
         });
     }
 
+
+    // change password button click
+    public void onChangePasswordButtonClick(View v) {
+
+        Intent intent = new Intent(this, CustomerChangePasswordActivity.class);
+        startActivity(intent);
+
+    }
+
 }

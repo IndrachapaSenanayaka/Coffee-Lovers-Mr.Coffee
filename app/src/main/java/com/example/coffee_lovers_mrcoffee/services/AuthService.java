@@ -20,7 +20,7 @@ public class AuthService {
     private final FirebaseAuth fAuth;
     private final FirebaseFirestore fireStore;
     private ListenerRegistration userDataListener;
-    private FirebaseUser firebaseCUser;
+    private FirebaseUser firebaseUser;
 
     private final String KEY_COLLECTION_CUSTOMERS = "customers";
 
@@ -40,14 +40,14 @@ public class AuthService {
     private void TrackCurrentUser() {
 
         fAuth.addAuthStateListener(firebaseAuth -> {
-            firebaseCUser = fAuth.getCurrentUser();
+            firebaseUser = fAuth.getCurrentUser();
 
-            if (firebaseCUser == null) {
+            if (firebaseUser == null) {
                 currentUser.onNext(Customer.NULL);
                 if (userDataListener != null)
                     userDataListener.remove();
             } else {
-                TrackCurrentUser(firebaseCUser.getUid());
+                TrackCurrentUser(firebaseUser.getUid());
             }
         });
 
@@ -140,7 +140,7 @@ public class AuthService {
     public void UpdateCurrentUser(Customer customer, OnCompleteListener<Void> onComplete, OnFailureListener onFailure) {
 
         fireStore.collection(KEY_COLLECTION_CUSTOMERS)
-                .document(firebaseCUser.getUid())
+                .document(firebaseUser.getUid())
                 .set(customer)
                 .addOnCompleteListener(task -> onComplete.onComplete(Tasks.forResult(null)))
                 .addOnFailureListener(onFailure);
@@ -170,11 +170,23 @@ public class AuthService {
                 .delete()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        firebaseCUser
+                        firebaseUser
                                 .delete()
                                 .addOnCompleteListener(task1 -> onComplete.onComplete(Tasks.forResult(null)));
                     }
                 });
+    }
+
+
+    /**
+     * Change current user password
+     */
+    public void ChangePassword(String password, OnCompleteListener<Void> onComplete) {
+
+        firebaseUser
+                .updatePassword(password)
+                .addOnCompleteListener(onComplete);
+
     }
 
 }
