@@ -128,4 +128,11 @@ public class CustomerProfileActivity extends AppCompatActivity {
 
     }
 
+
+    // favourites button click
+    public void onFavouritesButtonClick(View v) {
+        Intent intent = new Intent(this, FavouritesActivity.class);
+        startActivity(intent);
+    }
+
 }

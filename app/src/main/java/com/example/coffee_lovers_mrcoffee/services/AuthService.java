@@ -25,6 +25,7 @@ public class AuthService {
     private final String KEY_COLLECTION_CUSTOMERS = "customers";
 
     public BehaviorSubject<Customer> currentUser = BehaviorSubject.create();
+    public String currentUserID = null;
 
     public AuthService() {
         fAuth = FirebaseAuth.getInstance();
@@ -43,10 +44,12 @@ public class AuthService {
             firebaseUser = fAuth.getCurrentUser();
 
             if (firebaseUser == null) {
+                currentUserID = null;
                 currentUser.onNext(Customer.NULL);
                 if (userDataListener != null)
                     userDataListener.remove();
             } else {
+                currentUserID = firebaseUser.getUid();
                 TrackCurrentUser(firebaseUser.getUid());
             }
         });
