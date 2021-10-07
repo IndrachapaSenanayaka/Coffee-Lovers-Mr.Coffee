@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">"          Order Details"</string>
+    <string name="app_name">Mr.Coffee</string>
     <string name="et_message">Enter name</string>
     <string name="btn_send">submit</string>
     <string name="til_hint_name">Enter Promotion Name</string>
     <string name="required">Required*</string>
     <string name="LKR">"Rs."</string>
+    <string name="lkr">Rs.</string>
     <string name="til_hint_price">Price</string>
     <string name="til_hint_SDate">Promotion Start Date</string>
     <string name="til_hint_EDate">Promotion End Date</string>
@@ -22,4 +23,11 @@
     <string name="cus_hint_milk">Milk</string>
     <string name="cus_hint_espresso">Espresso</string>
     <string name="cus_hint_blendedOption">Blended Options</string>
+    <string name="btn_deletePromotion">Delete</string>
+    <string name="customizations">Customizations</string>
+    <string-array name="a">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
