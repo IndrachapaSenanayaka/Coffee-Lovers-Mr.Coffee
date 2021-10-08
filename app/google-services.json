@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "266409318366",
+    "firebase_url": "https://coffeelovers-60e47-default-rtdb.firebaseio.com",
+    "project_id": "coffeelovers-60e47",
+    "storage_bucket": "coffeelovers-60e47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266409318366:android:64189dd658e667dec62f4f",
+        "android_client_info": {
+          "package_name": "com.example.coffee_lover_mrcoffee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266409318366-1f75timpbg64p5ep6f9om8keskgq8f84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2hclLxDFmgNGGkLSKLnCc4S4qDvfnxiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266409318366-1f75timpbg64p5ep6f9om8keskgq8f84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266409318366:android:314685e4f57deee4c62f4f",
+        "android_client_info": {
+          "package_name": "com.example.coffee_lovers_mrcoffee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266409318366-1f75timpbg64p5ep6f9om8keskgq8f84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2hclLxDFmgNGGkLSKLnCc4S4qDvfnxiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266409318366-1f75timpbg64p5ep6f9om8keskgq8f84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266409318366:android:35348ea6d16bbbe9c62f4f",
+        "android_client_info": {
+          "package_name": "com.example.coffeelovers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266409318366-1f75timpbg64p5ep6f9om8keskgq8f84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2hclLxDFmgNGGkLSKLnCc4S4qDvfnxiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266409318366-1f75timpbg64p5ep6f9om8keskgq8f84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
