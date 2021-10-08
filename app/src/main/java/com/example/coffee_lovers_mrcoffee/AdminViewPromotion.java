@@ -1,13 +1,16 @@
 package com.example.coffee_lovers_mrcoffee;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -81,18 +84,31 @@ public class AdminViewPromotion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DataRef.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                          startActivity(new Intent(getApplicationContext(),CustomerViewPromotionsList.class));
-//                        StorageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void unused) {
-//                                startActivity(new Intent(getApplicationContext(),CustomerViewPromotionsList.class));
-//                            }
-//                        });
-                    }
-                });
+                AlertDialog dialog = new AlertDialog.Builder(AdminViewPromotion.this)
+                        .setTitle("Delete Promotion")
+                        .setMessage("Are you sure you want to delete this promotion?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DataRef.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        startActivity(new Intent(getApplicationContext(),AdminViewPromotionsList.class));
+                                        Toast.makeText(getApplicationContext(), "Promotion deleted successfully", Toast.LENGTH_SHORT).show();
+                //                        StorageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                //                            @Override
+                //                            public void onSuccess(Void unused) {
+                //                                startActivity(new Intent(getApplicationContext(),CustomerViewPromotionsList.class));
+                //                            }
+                //                        });
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show();
+
+
             }
         });
 
