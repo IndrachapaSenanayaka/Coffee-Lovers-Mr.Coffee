@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AdminViewPromotionsList"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,16 +23,16 @@
         </activity>
         <activity
             android:name=".AddPromotions"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AdminViewPromotion"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".CustomerViewPromotionsList"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".UpdatePromotions"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

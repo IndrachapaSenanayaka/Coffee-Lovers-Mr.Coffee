@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, CustomerViewPromotionsList.class);
+                Intent intent=new Intent(MainActivity.this, AdminViewPromotionsList.class);
                 startActivity(intent);
             }
         });
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, CustomOrder.class);
+                Intent intent=new Intent(MainActivity.this, AdminViewPromotionsList.class);
                 startActivity(intent);
             }
         });
