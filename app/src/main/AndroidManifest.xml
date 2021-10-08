@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CustomerViewPromotion"
+            android:exported="true" />
+        <activity
             android:name=".AdminViewPromotionsList"
             android:exported="true" />
         <activity

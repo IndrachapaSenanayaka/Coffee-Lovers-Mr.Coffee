@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -44,12 +45,12 @@ public class CustomerViewPromotionsList extends AppCompatActivity {
         options=new FirebaseRecyclerOptions.Builder<Promotion>().setQuery(dataRef,Promotion.class).build();
         adapter=new FirebaseRecyclerAdapter<Promotion, BannerListViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull BannerListViewHolder holder, int position, @NonNull Promotion model) {
+            protected void onBindViewHolder(@NonNull BannerListViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Promotion model) {
                 Picasso.get().load(model.getImageUrl()).into(holder.imageView);
                 holder.v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(CustomerViewPromotionsList.this,AdminViewPromotion.class);
+                        Intent intent=new Intent(CustomerViewPromotionsList.this,CustomerViewPromotion.class);
                         intent.putExtra("PromotionKey",getRef(position).getKey());
                         startActivity(intent);
                     }

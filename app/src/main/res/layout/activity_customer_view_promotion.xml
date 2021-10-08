@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerViewPromotion"
+    android:layout_margin="16dp">
+
+    <ImageView
+        android:id="@+id/image_view_banner_admin"
+        android:layout_width="match_parent"
+        android:layout_height="140dp" />
+
+    <TextView
+        android:id="@+id/tv_promotionName_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_view_banner_admin"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/tev_promotionName"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_description_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_promotionName_admin"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="56dp"
+        android:lineSpacingExtra="16sp"
+        android:text=" hfdhgdghjjfjgfkjfyhkjhfkjhfgkjgkjhgkjhfgljghluiyhhiopfuyho;ghpoidfupoigjdfopighopidfhgodfuygopijetgi;osyfd9yh;sdkgho;iftgopujrd;kjeiroutypoierjyteyhrt"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+
+        android:id="@+id/tv_start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_description_admin"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
+        android:text="Promotion Start Date : "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_start_date_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_description_admin"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_toEndOf="@+id/tv_start_date"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/tv_end_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_start_date_admin"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="30dp"
+        android:text="Promotion End Date : "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_end_date_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_start_date_admin"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_toEndOf="@+id/tv_end_date"
+        android:text="TextView" />
+
+
+    <TextView
+        android:id="@+id/tv_price_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_end_date"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="55dp"
+        android:layout_toEndOf="@+id/textView3"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_editPromotion_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="120dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/btn_addToCart" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_end_date_admin"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="55dp"
+        android:text="@string/lkr"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
