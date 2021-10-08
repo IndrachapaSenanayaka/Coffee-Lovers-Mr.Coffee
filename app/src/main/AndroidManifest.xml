@@ -27,6 +27,9 @@
         <activity
             android:name=".CustomerViewPromotionsList"
             android:exported="true"/>
+        <activity
+            android:name=".UpdatePromotions"
+            android:exported="true"/>
     </application>
 
 </manifest>
