@@ -24,6 +24,9 @@
         <activity
             android:name=".AdminViewPromotion"
             android:exported="true"/>
+        <activity
+            android:name=".CustomerViewPromotionsList"
+            android:exported="true"/>
     </application>
 
 </manifest>
