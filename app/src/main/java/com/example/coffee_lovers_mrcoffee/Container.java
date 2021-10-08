@@ -1,6 +1,7 @@
 package com.example.coffee_lovers_mrcoffee;
 
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
+import com.example.coffee_lovers_mrcoffee.services.FavouritesService;
 import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
 
 public class Container {
@@ -20,11 +21,13 @@ public class Container {
 
     public final AuthService authService;
     public final ValidationUtils validationUtils;
+    public final FavouritesService favouritesService;
 
 
     private Container(){
         authService = new AuthService();
         validationUtils = new ValidationUtils();
+        favouritesService = new FavouritesService(authService);
     }
 
 }

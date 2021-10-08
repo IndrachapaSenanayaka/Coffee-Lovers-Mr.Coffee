@@ -1,5 +1,7 @@
 package com.example.coffee_lovers_mrcoffee.services;
 
+import static com.example.coffee_lovers_mrcoffee.Constants.KEY_COLLECTION_CUSTOMERS;
+
 import androidx.annotation.NonNull;
 
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
@@ -21,8 +23,6 @@ public class AuthService {
     private final FirebaseFirestore fireStore;
     private ListenerRegistration userDataListener;
     private FirebaseUser firebaseUser;
-
-    private final String KEY_COLLECTION_CUSTOMERS = "customers";
 
     public BehaviorSubject<Customer> currentUser = BehaviorSubject.create();
     public String currentUserID = null;

@@ -1,69 +1,68 @@
 package com.example.coffee_lovers_mrcoffee.services;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 
-import com.example.coffee_lovers_mrcoffee.Container;
+import com.example.coffee_lovers_mrcoffee.Constants;
+import com.example.coffee_lovers_mrcoffee.adapters.FavouritesAdapter;
+import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.example.coffee_lovers_mrcoffee.data.models.Product;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.SnapshotParser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.Query;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
 
 public class FavouritesService {
 
     private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    private final String KEY_COLLECTION_PRODUCTS = "products";
+
+    // recycle adapter
+    public BehaviorSubject<FavouritesAdapter> favouritesAdapterSub = BehaviorSubject.create();
 
     // dependencies
-    private final Container container = Container.instant();
-    private final AuthService authService = container.authService;
+    private final AuthService authService;
 
     public BehaviorSubject<List<Product>> favouritesSub = BehaviorSubject.create();
 
 
     // constructor
-    public FavouritesService() {
+    public FavouritesService(AuthService authService) {
 
-        // listen favourites changes
-        firestore
-                .collection(KEY_COLLECTION_PRODUCTS)
-                .addSnapshotListener(this::listenFavouritesChanges);
+        // resolve dependencies
+        this.authService = authService;
 
-    }
+        // get user
+        this.authService.currentUser.subscribe(customer -> {
+            if(customer != Customer.NULL) {
 
+                // build firestore recycle view
+                Query favouritesQuery = firestore
+                        .collection(Constants.KEY_COLLECTION_CUSTOMERS)
+                        .document(authService.currentUserID)
+                        .collection(Constants.KEY_COLLECTION_FAVOURITES);
+                FirestoreRecyclerOptions<Product> options = new FirestoreRecyclerOptions.Builder<Product>()
+                        .setQuery(favouritesQuery, new SnapshotParser<Product>() {
+                            @NonNull
+                            @Override
+                            public Product parseSnapshot(@NonNull DocumentSnapshot snapshot) {
+                                Product product = snapshot.toObject(Product.class);
+                                product.customerId = authService.currentUserID;
+                                product.id = snapshot.getId();
+                                return product;
+                            }
+                        })
+                        .build();
+                FavouritesAdapter favouritesAdapter = new FavouritesAdapter(options);
+                favouritesAdapterSub.onNext(favouritesAdapter);
 
-    // listen for products collection changes
-    private void listenFavouritesChanges(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+            }
+        });
 
-        if(value == null) {
-            favouritesSub.onNext(new ArrayList<>());
-        } else {
-            // get favourites
-            List<Product> products = value.getDocuments()
-                    .stream()
-                    .map(d -> d.toObject(Product.class))
-                    .filter((p -> p.isFavourite && p.uid.equals(authService.currentUserID)))
-                    .collect(Collectors.toList());
-            // emmit
-            favouritesSub.onNext(products);
-        }
-
-    }
-
-
-    // remove an item from the favourites
-    public void removeFromFavourites(String productId, OnCompleteListener<Void> onComplete) {
-        firestore
-                .collection(KEY_COLLECTION_PRODUCTS)
-                .document(productId)
-                .delete()
-                .addOnCompleteListener(onComplete);
     }
 
 }
