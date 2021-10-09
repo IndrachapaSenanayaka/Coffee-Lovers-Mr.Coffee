@@ -86,7 +86,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
             txt_email.setText(customer.email);
             txt_phone.setText(customer.phoneNumber);
             txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
-            txt_fullName.setText(customer.firstName + " " + customer.lastName);
+            txt_fullName.setText("Hi " + customer.lastName);
 
 
         }
@@ -103,12 +103,6 @@ public class CustomerProfileActivity extends AppCompatActivity {
     public void onEditProfileButtonClick(View v) {
         Intent intent = new Intent(this, CustomerEditProfileActivity.class);
         startActivity(intent);
-    }
-
-
-    // sign out button click
-    public void onSignOutClick(View v) {
-        authService.SignOut();
     }
 
 
@@ -129,13 +123,6 @@ public class CustomerProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CustomerChangePasswordActivity.class);
         startActivity(intent);
 
-    }
-
-
-    // favourites button click
-    public void onFavouritesButtonClick(View v) {
-        Intent intent = new Intent(this, FavouritesActivity.class);
-        startActivity(intent);
     }
 
 }

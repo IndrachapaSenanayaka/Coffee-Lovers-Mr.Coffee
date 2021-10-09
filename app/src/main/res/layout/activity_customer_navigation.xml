@@ -6,4 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".ui.customer.CustomerNavigationActivity">
 
+    <Button
+        android:id="@+id/nav_view_profile_btn"
+        android:layout_width="227dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:text="View Profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nav_view_favourites_btn"
+        android:layout_width="227dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:text="View Favourites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_view_profile_btn" />
+
+    <Button
+        android:id="@+id/nav_signout_btn"
+        android:layout_width="227dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="10dp"
+        android:text="Sign Out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

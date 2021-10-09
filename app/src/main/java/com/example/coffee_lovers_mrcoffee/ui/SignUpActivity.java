@@ -20,6 +20,7 @@ import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.enums.Gender;
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
+import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerNavigationActivity;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
 import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
 
@@ -96,7 +97,7 @@ public class SignUpActivity extends AppCompatActivity {
         authService.SignUp(cus,
                 task -> {
                     if(task.isSuccessful()) {
-                        Intent intent = new Intent(SignUpActivity.this, CustomerProfileActivity.class);
+                        Intent intent = new Intent(SignUpActivity.this, CustomerNavigationActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     } else if (task.getException() != null) {

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
+import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerNavigationActivity;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
 import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
 
@@ -60,7 +61,7 @@ public class SignInActivity extends AppCompatActivity {
         authService.SignIn(
                 txt_email.getText().toString(), txt_password.getText().toString(),
                 task -> {
-                    Intent intent = new Intent(SignInActivity.this, CustomerProfileActivity.class);
+                    Intent intent = new Intent(SignInActivity.this, CustomerNavigationActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 },
