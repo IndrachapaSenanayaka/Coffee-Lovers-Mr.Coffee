@@ -1,8 +1,7 @@
-package com.example.coffee_lovers_mrcoffee.data.models;
+package com.example.coffee_lovers_mrcoffee.data.models.customer;
 
 import com.example.coffee_lovers_mrcoffee.data.enums.Gender;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Customer {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img"
-    tools:context=".AddProduct">
+    tools:context=".ui.admin.AddProduct">
 
   <ImageView
       android:id="@+id/ed_add"

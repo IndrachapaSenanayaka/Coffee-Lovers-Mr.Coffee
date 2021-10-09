@@ -1,10 +1,12 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.ui.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.coffee_lovers_mrcoffee.R;
 
 public class admin_landing_page extends AppCompatActivity {
 

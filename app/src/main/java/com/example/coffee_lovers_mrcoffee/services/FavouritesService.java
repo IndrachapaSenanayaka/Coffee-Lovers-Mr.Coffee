@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 
 import com.example.coffee_lovers_mrcoffee.Constants;
 import com.example.coffee_lovers_mrcoffee.adapters.FavouritesAdapter;
-import com.example.coffee_lovers_mrcoffee.data.models.Customer;
-import com.example.coffee_lovers_mrcoffee.data.models.Product;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Product;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.firebase.ui.firestore.SnapshotParser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -14,7 +14,6 @@ import com.google.firebase.firestore.Query;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
 
 public class FavouritesService {

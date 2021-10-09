@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
+import com.example.coffee_lovers_mrcoffee.ui.admin.admin_landing_page;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
 import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
 
@@ -57,15 +58,24 @@ public class SignInActivity extends AppCompatActivity {
         if(!validateFields())
             return;
 
-        authService.SignIn(
-                txt_email.getText().toString(), txt_password.getText().toString(),
-                task -> {
-                    Intent intent = new Intent(SignInActivity.this, CustomerProfileActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                },
-                e -> Toast.makeText(SignInActivity.this, e.getMessage(),Toast.LENGTH_LONG).show()
-        );
+        // check if admin is trying to login
+        if(txt_email.getText().equals("admin@admin.com") && txt_password.getText().equals("admin")) {
+
+            Intent intent = new Intent(SignInActivity.this, admin_landing_page.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+
+        } else {
+            authService.SignIn(
+                    txt_email.getText().toString(), txt_password.getText().toString(),
+                    task -> {
+                        Intent intent = new Intent(SignInActivity.this, CustomerProfileActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    },
+                    e -> Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_LONG).show()
+            );
+        }
 
     }
 

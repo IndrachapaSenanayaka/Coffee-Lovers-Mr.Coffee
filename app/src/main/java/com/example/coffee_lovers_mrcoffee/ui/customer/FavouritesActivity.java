@@ -9,13 +9,7 @@ import android.os.Bundle;
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.adapters.FavouritesAdapter;
-import com.example.coffee_lovers_mrcoffee.data.models.Product;
 import com.example.coffee_lovers_mrcoffee.services.FavouritesService;
-
-import java.util.List;
-
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
 
 public class FavouritesActivity extends AppCompatActivity {
 

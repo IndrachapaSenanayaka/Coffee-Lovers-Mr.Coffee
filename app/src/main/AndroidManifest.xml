@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="true">
         <activity
-            android:name=".admin_landing_page"
+            android:name=".ui.admin.admin_landing_page"
             android:exported="true" />
         <activity android:name=".ui.StartupActivity">
             <intent-filter>
@@ -38,17 +38,17 @@
         <activity
             android:name=".ui.SignUpActivity"
             android:exported="true" />
-        <activity android:name=".DrawerAdmin" />
-        <activity android:name=".ProductUpdatePopup" />
-        <activity android:name=".UpdateProductLayout" />
-        <activity android:name=".UpdateProducts" />
-        <activity android:name=".ShowProduct" />
-        <activity android:name=".MainProduct" />
-        <activity android:name=".DeleteProduct" />
-        <activity android:name=".UpdateProduct" />
-        <activity android:name=".ViewProduct" />
-        <activity android:name=".AddProduct" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.admin.DrawerAdmin" />
+        <activity android:name=".ui.admin.ProductUpdatePopup" />
+        <activity android:name=".ui.admin.UpdateProductLayout" />
+        <activity android:name=".ui.admin.UpdateProducts" />
+        <activity android:name=".ui.admin.ShowProduct" />
+        <activity android:name=".ui.admin.MainProduct" />
+        <activity android:name=".ui.admin.DeleteProduct" />
+        <activity android:name=".ui.admin.UpdateProduct" />
+        <activity android:name=".ui.admin.ViewProduct" />
+        <activity android:name=".ui.admin.AddProduct" />
+        <activity android:name=".ui.admin.MainActivity" />
     </application>
 
 </manifest>

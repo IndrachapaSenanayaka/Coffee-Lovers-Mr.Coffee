@@ -1,6 +1,5 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.ui.admin;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,9 +18,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
+import com.example.coffee_lovers_mrcoffee.R;
+import com.example.coffee_lovers_mrcoffee.data.models.admin.Product;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -39,7 +38,6 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.io.InputStream;
 import java.util.Random;
-import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

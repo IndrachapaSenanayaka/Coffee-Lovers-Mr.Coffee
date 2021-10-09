@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img"
-    tools:context=".ShowProduct">
+    tools:context=".ui.admin.ShowProduct">
 
     <TextView
         android:id="@+id/textAllProduct"
