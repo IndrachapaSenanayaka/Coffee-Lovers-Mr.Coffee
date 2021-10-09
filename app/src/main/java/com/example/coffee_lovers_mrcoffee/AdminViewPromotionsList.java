@@ -31,7 +31,9 @@ public class AdminViewPromotionsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_promotions_list);
-        getSupportActionBar().setTitle("Promotions");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("     Promotions List");
+        getSupportActionBar().setIcon(R.drawable.ic_menu);
 
         dataRef = FirebaseDatabase.getInstance().getReference().child("Promotion");
 

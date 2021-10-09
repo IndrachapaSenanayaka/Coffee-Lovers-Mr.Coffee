@@ -32,7 +32,7 @@ import com.google.firebase.storage.UploadTask;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-
+//add new promotion to the system
 public class AddPromotions extends AppCompatActivity {
 
     private EditText txtName, txtPrice, txtStartDate, txtEndDate, txtDescription;
@@ -53,8 +53,10 @@ public class AddPromotions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_promotions);
-        getSupportActionBar().setTitle("New Promotion");
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("     New Promotion");
+        getSupportActionBar().setIcon(R.drawable.ic_menu);
+        //database reference
         mStorageRef= FirebaseStorage.getInstance().getReference("PromotionBanner");
 
         txtName = findViewById(R.id.textInputEditTextName);
@@ -72,7 +74,7 @@ public class AddPromotions extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
 
-
+        //image choosing button click listner
         fabSelectImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +82,7 @@ public class AddPromotions extends AppCompatActivity {
             }
         });
 
-
+        //date choosing function
         txtStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +98,7 @@ public class AddPromotions extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
+        //date choosing function
         txtEndDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +116,7 @@ public class AddPromotions extends AppCompatActivity {
         });
     }
 
-
+    //new image choosing function
     private void Filechooser() {
 
         Intent intent=new Intent();
@@ -131,13 +133,13 @@ public class AddPromotions extends AppCompatActivity {
             ivBanner.setImageURI(imguri);
         }
     }
-
+    //get image extention
     private String getExtension(Uri uri){
         ContentResolver cr=getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
     }
-
+    //image file uploader
     private void Fileuploader() {
         String imageID;
         imageID = System.currentTimeMillis()+"."+getExtension(imguri);
@@ -172,7 +174,7 @@ public class AddPromotions extends AppCompatActivity {
                     });
 
     }
-
+    //upload function to the data base
     public void AddPromotion(View view){
 
         db = FirebaseDatabase.getInstance().getReference().child("Promotion");
@@ -181,12 +183,6 @@ public class AddPromotions extends AppCompatActivity {
 
 
         try {
-            if(uploadTask != null && uploadTask.isInProgress()){
-                Toast.makeText(AddPromotions.this, "Upload in progress", Toast.LENGTH_LONG).show();
-            }else {
-                Fileuploader();
-            }
-
 
             if (TextUtils.isEmpty(txtName.getText().toString().trim())) {
                 Toast.makeText(getApplicationContext(), "Please Entere Promotion Name", Toast.LENGTH_SHORT).show();
@@ -199,7 +195,11 @@ public class AddPromotions extends AppCompatActivity {
             } else if (TextUtils.isEmpty(txtDescription.getText().toString().trim())) {
                 Toast.makeText(getApplicationContext(), "Please Enter Promotion Description", Toast.LENGTH_SHORT).show();
             } else {
-
+                if(uploadTask != null && uploadTask.isInProgress()){
+                    Toast.makeText(AddPromotions.this, "Upload in progress", Toast.LENGTH_LONG).show();
+                }else {
+                    Fileuploader();
+                }
 
                 obPromo.setName(txtName.getText().toString().trim());
                 obPromo.setPrice(Float.parseFloat(txtPrice.getText().toString().trim()));

@@ -37,6 +37,9 @@ public class AdminViewPromotion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_promotion);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("     View Promotion");
+        getSupportActionBar().setIcon(R.drawable.ic_menu);
 
         imageView=findViewById(R.id.image_view_banner_admin);
         pName=findViewById(R.id.tv_promotionName_admin);

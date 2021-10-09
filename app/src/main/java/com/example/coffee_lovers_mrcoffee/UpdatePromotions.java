@@ -56,7 +56,9 @@ public class UpdatePromotions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_promotions);
-        getSupportActionBar().setTitle("Update Promotion");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("     Update Promotion");
+        getSupportActionBar().setIcon(R.drawable.ic_menu);
 
         mStorageRef= FirebaseStorage.getInstance().getReference("PromotionBanner");
 

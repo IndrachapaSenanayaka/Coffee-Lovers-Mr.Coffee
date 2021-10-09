@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".admin_landing_page"
+            android:exported="true" />
+        <activity
+            android:name=".CustomOrder"
+            android:exported="true" />
+        <activity
             android:name=".CustomerViewPromotion"
             android:exported="true" />
         <activity

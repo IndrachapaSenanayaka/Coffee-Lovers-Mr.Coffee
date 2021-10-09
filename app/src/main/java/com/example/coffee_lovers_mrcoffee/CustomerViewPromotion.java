@@ -27,6 +27,9 @@ public class CustomerViewPromotion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_view_promotion);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("     Promotion Details");
+        getSupportActionBar().setIcon(R.drawable.ic_menu);
 
         imageView=findViewById(R.id.image_view_banner_admin);
         pName=findViewById(R.id.tv_promotionName_admin);
