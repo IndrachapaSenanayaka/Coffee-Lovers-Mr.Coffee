@@ -27,7 +27,7 @@
             android:src="@drawable/favorite_icon" />
 
         <ImageView
-            android:id="@+id/img1"
+            android:id="@+id/favourite_img"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
@@ -36,33 +36,35 @@
             android:src="@drawable/coffee_1" />
 
         <TextView
+            android:id="@+id/favourite_name_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Heart Coffee"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:text="Heart Coffee"
             android:textSize="20sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/favourite_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="180dp"
-            android:textSize="20dp"
-            android:text="100 $"/>
+            android:layout_marginBottom="10dp"
+            android:text="100 $"
+            android:textSize="20dp" />
 
         <Button
+            android:id="@+id/favourite_add_btn"
             style="@style/SubmitButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
             android:layout_marginTop="220dp"
-            android:text="Add to Cart"/>
+            android:layout_marginBottom="20dp"
+            android:text="Add to Cart" />
 
     </androidx.cardview.widget.CardView>
 

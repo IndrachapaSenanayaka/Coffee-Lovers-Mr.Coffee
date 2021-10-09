@@ -211,6 +211,7 @@
             android:importantForAutofill="no" />
 
         <Button
+            android:visibility="invisible"
             android:fontFamily="@font/submit_button"
             android:id="@+id/button6"
             style="@style/AuthButton"
@@ -243,6 +244,7 @@
 
 
         <Button
+            android:visibility="invisible"
             android:fontFamily="@font/submit_button"
             android:id="@+id/button5"
             style="@style/AuthButton"

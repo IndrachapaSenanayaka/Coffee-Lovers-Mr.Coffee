@@ -86,6 +86,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:visibility="invisible"
         android:fontFamily="@font/submit_button"
         style="@style/AuthButton"
         android:id="@+id/button2"
@@ -102,6 +103,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:visibility="invisible"
         android:fontFamily="@font/submit_button"
         style="@style/AuthButton"
         android:id="@+id/button3"

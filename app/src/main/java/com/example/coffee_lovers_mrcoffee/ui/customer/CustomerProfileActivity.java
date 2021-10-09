@@ -25,7 +25,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
     private final AuthService authService = container.authService;
 
     // components
-    private TextView txt_firstName, txt_lastName, txt_email, txt_phone, txt_birthday;
+    private TextView txt_firstName, txt_lastName, txt_email, txt_phone, txt_birthday, txt_fullName;
 
     // disposals
     private Disposable currentUserDisposer;
@@ -45,6 +45,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
         txt_email = findViewById(R.id.txt_profile_email);
         txt_phone = findViewById(R.id.txt_profile_phone);
         txt_birthday = findViewById(R.id.txt_profile_birthday);
+        txt_fullName = findViewById(R.id.txt_fullName);
 
         // listen for current user changes
         currentUserDisposer = authService
@@ -85,6 +86,8 @@ public class CustomerProfileActivity extends AppCompatActivity {
             txt_email.setText(customer.email);
             txt_phone.setText(customer.phoneNumber);
             txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
+            txt_fullName.setText(customer.firstName + " " + customer.lastName);
+
 
         }
     }

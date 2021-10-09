@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:visibility="invisible"
             android:id="@+id/button11"
             style="@style/SubmitButton"
             android:layout_width="0dp"
