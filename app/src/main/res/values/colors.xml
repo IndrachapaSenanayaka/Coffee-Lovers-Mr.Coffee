@@ -2,8 +2,11 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#A84322</color>
     <color name="espresso">#5d2816</color>
     <color name="darkbrown">#1B0000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="button_background">#60230F</color>
+    <color name="button_text">#FFFFFF</color>
+    <color name="link_text">#A84322</color>
 </resources>

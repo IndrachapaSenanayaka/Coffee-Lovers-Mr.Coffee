@@ -4,7 +4,40 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/espresso</item>
         <item name="colorPrimaryDark">@color/darkbrown</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">#384FE6</item>
+    </style>
+
+    <style name="AuthButton">
+        <item name="android:background">@color/button_background</item>
+        <item name="android:textColor">@color/button_text</item>
+    </style>
+
+    <style name="MainHeading">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="SubHeading">
+        <item name="android:fontFamily">@font/main_headings</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="NormalText">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="FormLabel">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/form_labels</item>
+    </style>
+
+    <style name="FormInput">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/form_labels</item>
+    </style>
+
+    <style name="SubmitButton">
+        <item name="android:background">@color/button_background</item>
+        <item name="android:textColor">@color/button_text</item>
     </style>
 
 </resources>

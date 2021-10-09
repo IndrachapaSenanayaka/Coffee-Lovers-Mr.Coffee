@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_customer_change_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_customer_edit_profile.xml" value="0.536" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_customer_profile.xml" value="0.3830703012912482" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_favourites.xml" value="0.25416666666666665" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_sign_in.xml" value="0.4" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_startup.xml" value="0.264" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/favourite_card.xml" value="0.25416666666666665" />
+        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/fragment_labeled_input.xml" value="0.42397914856646396" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
