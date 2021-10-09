@@ -59,7 +59,8 @@ public class SignInActivity extends AppCompatActivity {
             return;
 
         // check if admin is trying to login
-        if(txt_email.getText().equals("admin@admin.com") && txt_password.getText().equals("admin")) {
+        if(txt_email.getText().toString().equals("admin@admin.com")
+                && txt_password.getText().toString().equals("admin")) {
 
             Intent intent = new Intent(SignInActivity.this, admin_landing_page.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
