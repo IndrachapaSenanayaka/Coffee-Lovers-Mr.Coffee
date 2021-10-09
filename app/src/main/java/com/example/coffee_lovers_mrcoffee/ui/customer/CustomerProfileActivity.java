@@ -86,7 +86,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
             txt_email.setText(customer.email);
             txt_phone.setText(customer.phoneNumber);
             txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
-            txt_fullName.setText(customer.firstName + " " + customer.lastName);
+            txt_fullName.setText("Hi " + customer.firstName);
 
 
         }
