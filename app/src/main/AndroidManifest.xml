@@ -1,54 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coffee_lovers_mrcoffee">
+    package="com.example.appcart" >
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/my_app_icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/my_app_icon_round"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="true">
+        android:theme="@style/Theme.AppCart" >
+        <activity android:name=".coffeCategory"/>
+        <activity android:name=".menu"/>
+        <activity android:name=".chocolate"/>
+        <activity android:name=".delivery"/>
+        <activity android:name=".payment"/>
+        <activity android:name=".order"/>
+        <activity android:name=".deliveryupdate"/>
         <activity
-            android:name=".ui.admin.admin_landing_page"
-            android:exported="true" />
-        <activity android:name=".ui.StartupActivity">
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.customer.FavouritesActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.customer.CustomerChangePasswordActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.customer.CustomerEditProfileActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.customer.CustomerProfileActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.SignInActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.SignUpActivity"
-            android:exported="true" />
-        <activity android:name=".ui.admin.DrawerAdmin" />
-        <activity android:name=".ui.admin.ProductUpdatePopup" />
-        <activity android:name=".ui.admin.UpdateProductLayout" />
-        <activity android:name=".ui.admin.UpdateProducts" />
-        <activity android:name=".ui.admin.ShowProduct" />
-        <activity android:name=".ui.admin.MainProduct" />
-        <activity android:name=".ui.admin.DeleteProduct" />
-        <activity android:name=".ui.admin.UpdateProduct" />
-        <activity android:name=".ui.admin.ViewProduct" />
-        <activity android:name=".ui.admin.AddProduct" />
-        <activity android:name=".ui.admin.MainActivity" />
     </application>
 
 </manifest>

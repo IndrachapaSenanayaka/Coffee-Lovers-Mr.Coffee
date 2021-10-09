@@ -3,21 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_customer_change_password.xml" value="0.25416666666666665" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_customer_edit_profile.xml" value="0.536" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_customer_profile.xml" value="0.3830703012912482" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_favourites.xml" value="0.25416666666666665" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_sign_in.xml" value="0.4" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/activity_startup.xml" value="0.264" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/favourite_card.xml" value="0.25416666666666665" />
-        <entry key="..\:/Personal/SLIIT/MAD/Coffee-Lovers-Mr.Coffee/app/src/main/res/layout/fragment_labeled_input.xml" value="0.42397914856646396" />
+        <entry key="../../../../../layout/custom_preview.xml" value="0.27291666666666664" />
+        <entry key="..\:/Program Files/Android/AppCart/app/src/main/res/layout/activity_coffe_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Program Files/Android/AppCart/app/src/main/res/layout/activity_payment.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/activity_cart.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_chocolate.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_cofeecategories.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/activity_coffe_category.xml" value="0.20912547528517111" />
+        <entry key="app/src/main/res/layout/activity_delivery.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.26011560693641617" />
+        <entry key="app/src/main/res/layout/activity_order.xml" value="0.2513586956521739" />
+        <entry key="app/src/main/res/layout/activity_payment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_payment_method.xml" value="0.21965579710144928" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/activity_selected.xml" value="0.23867753623188406" />
+        <entry key="app/src/main/res/layout/activity_start.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_update_delivery.xml" value="0.125" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
