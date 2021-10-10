@@ -1,14 +1,15 @@
 package com.example.coffee_lovers_mrcoffee.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
-import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
+import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerNavigationActivity;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 
@@ -32,10 +33,10 @@ public class StartupActivity extends AppCompatActivity {
 
             Intent intent;
 
-            if (customer == null) {
+            if (customer == Customer.NULL) {
                 intent = new Intent(StartupActivity.this, SignInActivity.class);
             } else {
-                intent = new Intent(StartupActivity.this, CustomerProfileActivity.class);
+                intent = new Intent(StartupActivity.this, CustomerNavigationActivity.class);
             }
 
             startActivity(intent);
