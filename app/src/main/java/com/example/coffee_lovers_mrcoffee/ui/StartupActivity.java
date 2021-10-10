@@ -11,6 +11,9 @@ import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerNavigationActivity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class StartupActivity extends AppCompatActivity {
@@ -22,6 +25,9 @@ public class StartupActivity extends AppCompatActivity {
     // disposables
     Disposable customerListener;
 
+    // delay
+    private final int DELAY = 1500;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +37,18 @@ public class StartupActivity extends AppCompatActivity {
         // check if customer is already logged in
         customerListener = authService.currentUser.subscribe(customer -> {
 
-            Intent intent;
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
 
-            if (customer == Customer.NULL) {
-                intent = new Intent(StartupActivity.this, SignInActivity.class);
-            } else {
-                intent = new Intent(StartupActivity.this, CustomerNavigationActivity.class);
-            }
+                    // stop subscription
+                    customerListener.dispose();
 
-            startActivity(intent);
-            finish();
+                    // notify changes
+                    onCustomerChanges(customer);
+
+                }
+            }, DELAY);
 
         });
 
@@ -51,6 +59,25 @@ public class StartupActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        customerListener.dispose();
+        if (!customerListener.isDisposed())
+            customerListener.dispose();
     }
+
+
+    // listen for customer changes
+    private void onCustomerChanges(Customer customer) {
+
+        Intent intent;
+
+        if (customer == Customer.NULL) {
+            intent = new Intent(StartupActivity.this, SignInActivity.class);
+        } else {
+            intent = new Intent(StartupActivity.this, CustomerNavigationActivity.class);
+        }
+
+        startActivity(intent);
+        finish();
+
+    }
+
 }

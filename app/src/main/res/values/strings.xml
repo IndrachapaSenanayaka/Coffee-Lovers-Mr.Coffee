@@ -65,4 +65,17 @@
     <string name="editProduct">Edit Product</string>
     <string name="promotions">Promotions</string>
     <string name="order">Orders</string>
+    <string name="signup_lbl_gender">Gender</string>
+    <string name="signup_txt_bd">Click to pick a date</string>
+    <string name="signup_gender_male">Male</string>
+    <string name="signup_gender_female">Female</string>
+    <string name="edit_profile_change_your_details_here">Change your details here...</string>
+    <string name="edit_profile_save_changes">Save Changes</string>
+    <string name="edit_profile_cancel">Cancel</string>
+    <string name="chng_pwd_confirm_password">Confirm password</string>
+    <string name="chng_pwd_secure_your_account_here">Secure your account here...</string>
+    <string name="chng_pwd_new_password">New Password</string>
+    <string name="chng_pwd_new_password_hint">New password</string>
+    <string name="chng_pwd_cancel">Cancel</string>
+    <string name="chng_pwd_change_password">Change Password</string>
 </resources>

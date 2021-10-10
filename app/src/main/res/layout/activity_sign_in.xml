@@ -79,45 +79,11 @@
         android:layout_height="39dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/submit_button"
-        android:text="@string/signin_button_text"
         android:onClick="onSignInClick"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:visibility="invisible"
-        android:fontFamily="@font/submit_button"
-        style="@style/AuthButton"
-        android:id="@+id/button2"
-        android:layout_width="166dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="60dp"
-        android:text="@string/facebook_btn_txt"
-        android:background="#00F"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:visibility="invisible"
-        android:fontFamily="@font/submit_button"
-        style="@style/AuthButton"
-        android:id="@+id/button3"
-        android:layout_width="166dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="60dp"
-        android:text="@string/google_btn_txt"
-        android:background="#F00"
+        android:text="@string/signin_button_text"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"

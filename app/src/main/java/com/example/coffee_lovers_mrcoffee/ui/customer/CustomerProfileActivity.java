@@ -33,7 +33,6 @@ public class CustomerProfileActivity extends AppCompatActivity {
     // detects if the current user is being deleted
     private boolean deleteMode = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +47,9 @@ public class CustomerProfileActivity extends AppCompatActivity {
         txt_fullName = findViewById(R.id.txt_fullName);
 
         // listen for current user changes
-        currentUserDisposer = authService
-                .currentUser
-                .subscribe(
-                        this::onUserChanges,
-                        throwable -> System.err.println("Error while receiving customer data" + throwable));
+        currentUserDisposer = authService.currentUser.subscribe(this::onUserChanges,
+                throwable -> System.err.println("Error while receiving customer data" + throwable));
     }
-
 
     @Override
     protected void onDestroy() {
@@ -64,17 +59,16 @@ public class CustomerProfileActivity extends AppCompatActivity {
         currentUserDisposer.dispose();
     }
 
-
     // ---- EVENTS
 
     // current user changes listeners
     @SuppressLint("SimpleDateFormat")
     private void onUserChanges(Customer customer) {
-        if(deleteMode)
+        if (deleteMode)
             return;
 
         // logout if user is null
-        if(customer == Customer.NULL) {
+        if (customer == Customer.NULL) {
 
             goToSignIn();
 
@@ -88,7 +82,6 @@ public class CustomerProfileActivity extends AppCompatActivity {
             txt_birthday.setText(new SimpleDateFormat("yyyy-MM-dd").format(customer.birthday));
             txt_fullName.setText("Hi " + customer.lastName);
 
-
         }
     }
 
@@ -98,13 +91,11 @@ public class CustomerProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     // edit profile button click handler
     public void onEditProfileButtonClick(View v) {
         Intent intent = new Intent(this, CustomerEditProfileActivity.class);
         startActivity(intent);
     }
-
 
     // delete button click
     public void onDeleteButtonClick(View v) {
@@ -115,7 +106,6 @@ public class CustomerProfileActivity extends AppCompatActivity {
             goToSignIn();
         });
     }
-
 
     // change password button click
     public void onChangePasswordButtonClick(View v) {
