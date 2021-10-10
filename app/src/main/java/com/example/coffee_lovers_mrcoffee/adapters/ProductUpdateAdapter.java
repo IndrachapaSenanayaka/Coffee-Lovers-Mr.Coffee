@@ -14,13 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.coffee_lovers_mrcoffee.Constants;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.admin.Product;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -30,23 +31,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-public class ProductUpdateAdapter extends FirebaseRecyclerAdapter<Product, ProductUpdateAdapter.myViewHolder> {
+
+public class ProductUpdateAdapter extends FirestoreRecyclerAdapter<Product, ProductUpdateAdapter.myViewHolder> {
 
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public ProductUpdateAdapter(@NonNull @NotNull FirebaseRecyclerOptions<Product> options) {
+    public ProductUpdateAdapter(@NonNull @NotNull FirestoreRecyclerOptions<Product> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, final int position, @NonNull Product model) {
+    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Product model) {
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
+        holder.price.setText(String.format("%.2f",model.getPrice()));
         holder.description.setText(model.getDescription());
 
         Glide.with(holder.img.getContext()).
@@ -59,7 +55,7 @@ public class ProductUpdateAdapter extends FirebaseRecyclerAdapter<Product, Produ
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.activity_product_update_popup))
-                        .setExpanded(true,1100)
+                        .setExpanded(true,1200)
                         .create();
 
                 View view = dialogPlus.getHolderView();
@@ -71,7 +67,7 @@ public class ProductUpdateAdapter extends FirebaseRecyclerAdapter<Product, Produ
                 Button btnUpdate = view.findViewById(R.id.btnUpdate);
 
                 name.setText(model.getName());
-                price.setText(model.getPrice());
+                price.setText(Float.toString(model.getPrice()));
                 description.setText(model.getDescription());
 
                 dialogPlus.show();
@@ -81,11 +77,12 @@ public class ProductUpdateAdapter extends FirebaseRecyclerAdapter<Product, Produ
                     public void onClick(View v) {
                         Map<String, Object> map =  new HashMap<>();
                         map.put("name", name.getText().toString());
-                        map.put("price", price.getText().toString());
+                        map.put("price", Float.parseFloat(price.getText().toString()));
                         map.put("description", description.getText().toString());
 
-                        FirebaseDatabase.getInstance().getReference().child("Product")
-                                .child(getRef(position).getKey()).updateChildren(map)
+                        FirebaseFirestore.getInstance()
+                                .collection(Constants.KEY_COLLECTION_PRODUCTS)
+                                .document(model.id).update(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
@@ -96,7 +93,7 @@ public class ProductUpdateAdapter extends FirebaseRecyclerAdapter<Product, Produ
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
-                                    public void onFailure(Exception e) {
+                                    public void onFailure(Exception exxx) {
                                         Toast.makeText(holder.name.getContext(), "Error while updating", Toast.LENGTH_LONG).show();
                                         dialogPlus.dismiss();
                                     }
@@ -116,8 +113,9 @@ public class ProductUpdateAdapter extends FirebaseRecyclerAdapter<Product, Produ
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("Product")
-                                .child(getRef(position).getKey()).removeValue();
+                        FirebaseFirestore.getInstance()
+                                .collection(Constants.KEY_COLLECTION_PRODUCTS)
+                                .document(model.id).delete();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

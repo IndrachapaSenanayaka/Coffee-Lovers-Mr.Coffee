@@ -1,19 +1,21 @@
 package com.example.coffee_lovers_mrcoffee.ui.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coffee_lovers_mrcoffee.Constants;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.adapters.ProductUpdateAdapter;
 import com.example.coffee_lovers_mrcoffee.data.models.admin.Product;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.FirebaseDatabase;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class UpdateProductLayout extends AppCompatActivity {
 
@@ -25,14 +27,19 @@ public class UpdateProductLayout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_product_layout);
 
-        recyclerView = (RecyclerView)findViewById(R.id.viewUpdateProduct);
+        recyclerView = (RecyclerView) findViewById(R.id.viewUpdateProduct);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        FirebaseRecyclerOptions<Product> options =
-                new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Product"), Product.class)
+        Query query = FirebaseFirestore.getInstance().collection(Constants.KEY_COLLECTION_PRODUCTS);
+        FirestoreRecyclerOptions<Product> options =
+                new FirestoreRecyclerOptions.Builder<Product>()
+                        .setQuery(query, snapshot -> {
+                            Product product = snapshot.toObject(Product.class);
+                            product.id = snapshot.getId();
+                            return product;
+                        })
                         .build();
 
         productUpdateAdapter = new ProductUpdateAdapter(options);
@@ -67,17 +74,26 @@ public class UpdateProductLayout extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String query) {
-                txtSearch(query );
+                txtSearch(query);
                 return false;
             }
         });
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void txtSearch(String str){
-        FirebaseRecyclerOptions<Product> options =
-                new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Product").orderByChild("name").startAt(str).endAt(str+"~"), Product.class)
+    private void txtSearch(String str) {
+        Query query = FirebaseFirestore.getInstance()
+                .collection(Constants.KEY_COLLECTION_PRODUCTS)
+                .orderBy("name")
+                .startAt(str)
+                .endAt(str + "~");
+        FirestoreRecyclerOptions<Product> options =
+                new FirestoreRecyclerOptions.Builder<Product>()
+                        .setQuery(query, snapshot -> {
+                            Product product = snapshot.toObject(Product.class);
+                            product.id = snapshot.getId();
+                            return product;
+                        })
                         .build();
 
         productUpdateAdapter = new ProductUpdateAdapter(options);

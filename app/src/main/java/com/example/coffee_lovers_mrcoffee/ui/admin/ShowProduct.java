@@ -1,19 +1,21 @@
 package com.example.coffee_lovers_mrcoffee.ui.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coffee_lovers_mrcoffee.Constants;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.adapters.MainAdapterProduct;
 import com.example.coffee_lovers_mrcoffee.data.models.admin.Product;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.FirebaseDatabase;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class ShowProduct extends AppCompatActivity {
 
@@ -25,15 +27,14 @@ public class ShowProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_product);
 
-        recyclerView = (RecyclerView)findViewById(R.id.viewAllProducts);
+        recyclerView = (RecyclerView) findViewById(R.id.viewAllProducts);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-        FirebaseRecyclerOptions<Product> options =
-                new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Product"), Product.class)
-                        .build();
+        Query query = FirebaseFirestore.getInstance().collection(Constants.KEY_COLLECTION_PRODUCTS);
+        FirestoreRecyclerOptions<Product> options = new FirestoreRecyclerOptions.Builder<Product>()
+                .setQuery(query, Product.class)
+                .build();
 
         mainAdapterProduct = new MainAdapterProduct(options);
         recyclerView.setAdapter(mainAdapterProduct);
@@ -67,18 +68,23 @@ public class ShowProduct extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String query) {
-                txtSearch(query );
+                txtSearch(query);
                 return false;
             }
         });
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void txtSearch(String str){
-        FirebaseRecyclerOptions<Product> options =
-                new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Product").orderByChild("name").startAt(str).endAt(str+"~"), Product.class)
-                        .build();
+    private void txtSearch(String str) {
+        Query query = FirebaseFirestore
+                .getInstance()
+                .collection(Constants.KEY_COLLECTION_PRODUCTS)
+                .orderBy("name")
+                .startAt(str)
+                .endAt(str + "~");
+        FirestoreRecyclerOptions<Product> options = new FirestoreRecyclerOptions.Builder<Product>()
+                .setQuery(query, Product.class)
+                .build();
 
         mainAdapterProduct = new MainAdapterProduct(options);
         mainAdapterProduct.startListening();

@@ -11,30 +11,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.admin.Product;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 import org.jetbrains.annotations.NotNull;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainAdapterProduct extends FirebaseRecyclerAdapter<Product, MainAdapterProduct.myViewHolder> {
+public class MainAdapterProduct extends FirestoreRecyclerAdapter<Product, MainAdapterProduct.myViewHolder> {
 
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public MainAdapterProduct(@NonNull @NotNull FirebaseRecyclerOptions<Product> options) {
+    public MainAdapterProduct(@NonNull @NotNull FirestoreRecyclerOptions<Product> options) {
         super(options);
     }
 
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Product model) {
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
+        holder.price.setText(String.format("%.2f",model.getPrice()));
         holder.description.setText(model.getDescription());
 
         Glide.with(holder.img.getContext()).
