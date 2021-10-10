@@ -1,6 +1,7 @@
 package com.example.coffee_lovers_mrcoffee.data.models.admin;
 
 public class Product {
+    public String id;
     private String image;
     private String name;
     private String price;

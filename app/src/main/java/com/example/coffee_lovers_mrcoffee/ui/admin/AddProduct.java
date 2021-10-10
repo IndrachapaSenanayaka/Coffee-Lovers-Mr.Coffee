@@ -1,8 +1,5 @@
 package com.example.coffee_lovers_mrcoffee.ui.admin;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -18,11 +15,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.coffee_lovers_mrcoffee.Constants;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.admin.Product;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -34,12 +35,10 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
-//import org.jetbrains.annotations.NotNull;
-
 import java.io.InputStream;
 import java.util.Random;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+//import org.jetbrains.annotations.NotNull;
 
 public class AddProduct extends AppCompatActivity {
 
@@ -51,7 +50,7 @@ public class AddProduct extends AppCompatActivity {
 
     EditText pName, pPrice, pDescription;
     Button btnAdd;
-    DatabaseReference dbRef;
+    CollectionReference dbRef;
     Product pdt;
 
     //public AddProduct(UploadTask.TaskSnapshot taskSnapshot) {
@@ -149,7 +148,7 @@ public class AddProduct extends AppCompatActivity {
         if(filepath == null){
             Toast.makeText(this, "Please Select a Hotel Image", Toast.LENGTH_SHORT).show();
         }else {
-            dbRef = FirebaseDatabase.getInstance().getReference().child("Product");
+            dbRef = FirebaseFirestore.getInstance().collection(Constants.KEY_COLLECTION_PRODUCTS);
 
             try {
                 if (TextUtils.isEmpty(pName.getText().toString()))
@@ -186,7 +185,7 @@ public class AddProduct extends AppCompatActivity {
                                             pdt.setImage(uri.toString());
 
                                             //Insert into the database...
-                                            dbRef.push().setValue(pdt);
+                                            dbRef.add(pdt);
 
                                             //Feedback to the user via a Toast...
                                             Toast.makeText(getApplicationContext(), "Product details Saved Successfully...", Toast.LENGTH_SHORT).show();
