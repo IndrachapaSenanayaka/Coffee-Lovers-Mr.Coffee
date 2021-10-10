@@ -69,4 +69,7 @@
     <string name="signup_txt_bd">Click to pick a date</string>
     <string name="signup_gender_male">Male</string>
     <string name="signup_gender_female">Female</string>
+    <string name="edit_profile_change_your_details_here">Change your details here...</string>
+    <string name="edit_profile_save_changes">Save Changes</string>
+    <string name="edit_profile_cancel">Cancel</string>
 </resources>
