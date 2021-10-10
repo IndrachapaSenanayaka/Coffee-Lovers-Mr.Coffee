@@ -1,4 +1,4 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.data.models;
 
 public class Order {
     private Integer orderId;

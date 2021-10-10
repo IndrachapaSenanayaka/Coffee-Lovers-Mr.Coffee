@@ -1,4 +1,4 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.ui.customer;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coffee_lovers_mrcoffee.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -16,20 +16,22 @@
         <activity
             android:name=".ui.admin.admin_landing_page"
             android:exported="true" />
+        <activity android:name=".ui.StartupActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".ui.StartupActivity"
+            android:name=".ui.customer.CustomOrder"
             android:exported="true" />
         <activity
-            android:name=".CustomOrder"
+            android:name=".ui.customer.CustomerViewPromotion"
             android:exported="true" />
         <activity
-            android:name=".CustomerViewPromotion"
-            android:exported="true" />
-        <activity
-            android:name=".AdminViewPromotionsList"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.admin.AdminViewPromotionsList"
             android:exported="true" />
         <activity
             android:name=".ui.customer.FavouritesActivity"
@@ -61,16 +63,16 @@
         <activity android:name=".ui.admin.AddProduct" />
         <activity android:name=".ui.admin.MainActivity" />
         <activity
-            android:name=".AddPromotions"
+            android:name=".ui.admin.AddPromotions"
             android:exported="true" />
         <activity
-            android:name=".AdminViewPromotion"
+            android:name=".ui.admin.AdminViewPromotion"
             android:exported="true" />
         <activity
-            android:name=".CustomerViewPromotionsList"
+            android:name=".ui.customer.CustomerViewPromotionsList"
             android:exported="true" />
         <activity
-            android:name=".UpdatePromotions"
+            android:name=".ui.admin.UpdatePromotions"
             android:exported="true" />
     </application>
 

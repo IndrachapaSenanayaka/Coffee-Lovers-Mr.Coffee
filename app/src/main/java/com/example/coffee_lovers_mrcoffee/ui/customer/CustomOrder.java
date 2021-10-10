@@ -1,4 +1,4 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.ui.customer;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.coffee_lovers_mrcoffee.R;
 
 public class CustomOrder extends AppCompatActivity {
 

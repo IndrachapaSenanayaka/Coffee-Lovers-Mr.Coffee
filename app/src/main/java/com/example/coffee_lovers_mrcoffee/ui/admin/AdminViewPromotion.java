@@ -1,4 +1,4 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.ui.admin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coffee_lovers_mrcoffee.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

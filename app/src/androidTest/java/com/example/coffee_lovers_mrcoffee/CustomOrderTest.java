@@ -1,5 +1,7 @@
 package com.example.coffee_lovers_mrcoffee;
 
+import com.example.coffee_lovers_mrcoffee.ui.customer.CustomOrder;
+
 import junit.framework.TestCase;
 
 public class CustomOrderTest extends TestCase {

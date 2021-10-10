@@ -1,4 +1,4 @@
-package com.example.coffee_lovers_mrcoffee;
+package com.example.coffee_lovers_mrcoffee.ui.customer;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,46 +12,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coffee_lovers_mrcoffee.data.models.Promotion;
+import com.example.coffee_lovers_mrcoffee.R;
+import com.example.coffee_lovers_mrcoffee.ui.admin.BannerListViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-public class AdminViewPromotionsList extends AppCompatActivity {
+public class CustomerViewPromotionsList extends AppCompatActivity {
 
     RecyclerView recycler_customer;
     FirebaseRecyclerOptions<Promotion> options;
     FirebaseRecyclerAdapter<Promotion, BannerListViewHolder> adapter;
     DatabaseReference dataRef;
-    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_view_promotions_list);
+        setContentView(R.layout.activity_customer_view_promotions_list);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("     Promotions List");
+        getSupportActionBar().setTitle("     Promotions");
         getSupportActionBar().setIcon(R.drawable.ic_menu);
 
         dataRef = FirebaseDatabase.getInstance().getReference().child("Promotion");
 
-        floatingActionButton = findViewById(R.id.floatingActionButton);
-
         recycler_customer = findViewById(R.id.recycler_customer);
         recycler_customer.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recycler_customer.setHasFixedSize(true);
-
+        
         LoadData();
-
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(AdminViewPromotionsList.this, AddPromotions.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void LoadData() {
@@ -64,7 +55,7 @@ public class AdminViewPromotionsList extends AppCompatActivity {
                 holder.v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(AdminViewPromotionsList.this,AdminViewPromotion.class);
+                        Intent intent=new Intent(CustomerViewPromotionsList.this,CustomerViewPromotion.class);
                         intent.putExtra("PromotionKey",getRef(position).getKey());
                         startActivity(intent);
                     }
