@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    tools:context=".ui.admin.AddProduct">
+
+  <ImageView
+      android:id="@+id/ed_add"
+      android:layout_width="337dp"
+      android:layout_height="69dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/add_product" />
+
+  <ImageView
+      android:id="@+id/productImage"
+      android:layout_width="120dp"
+      android:layout_height="120dp"
+      android:layout_marginStart="60dp"
+      android:layout_marginLeft="60dp"
+      android:layout_marginTop="24dp"
+      android:src="@drawable/ic_launcher_background"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ed_add"
+      tools:ignore="VectorDrawableCompat" />
+
+  <ImageButton
+      android:id="@+id/imageButton"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="196dp"
+      android:layout_marginEnd="100dp"
+      android:layout_marginRight="100dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/ic_menu_camera" />
+
+  <TextView
+      android:id="@+id/ed_addimage"
+      android:layout_width="119dp"
+      android:layout_height="41dp"
+      android:layout_marginStart="24dp"
+      android:layout_marginLeft="24dp"
+      android:layout_marginTop="32dp"
+      android:text="@string/ed_addimage"
+      android:textColor="@color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ed_add" />
+
+
+  <TextView
+      android:id="@+id/ed_add_name"
+      android:layout_width="116dp"
+      android:layout_height="44dp"
+      android:layout_marginStart="24dp"
+      android:layout_marginLeft="24dp"
+      android:layout_marginTop="104dp"
+      android:text="@string/ed_addimage"
+      android:textColor="@color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ed_addimage" />
+
+  <EditText
+      android:id="@+id/ed_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="41dp"
+      android:ems="10"
+      android:hint="@string/ed_add_name"
+      android:inputType="textPersonName"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.508"
+      app:layout_constraintStart_toEndOf="@+id/ed_add_name"
+      app:layout_constraintTop_toBottomOf="@+id/productImage" />
+
+  <TextView
+      android:id="@+id/ed_add_price"
+      android:layout_width="115dp"
+      android:layout_height="40dp"
+      android:layout_marginStart="24dp"
+      android:layout_marginLeft="24dp"
+      android:layout_marginTop="100dp"
+      android:text="@string/ed_add_price"
+      android:textColor="@color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ed_add_name" />
+
+  <EditText
+      android:id="@+id/ed_price"
+      android:layout_width="212dp"
+      android:layout_height="43dp"
+      android:layout_marginTop="100dp"
+      android:ems="10"
+      android:hint="@string/ed_price"
+      android:inputType="textPersonName"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.533"
+      app:layout_constraintStart_toEndOf="@+id/ed_add_price"
+      app:layout_constraintTop_toBottomOf="@+id/ed_name" />
+
+  <TextView
+      android:id="@+id/ed_add_des"
+      android:layout_width="112dp"
+      android:layout_height="43dp"
+      android:layout_marginStart="24dp"
+      android:layout_marginLeft="24dp"
+      android:layout_marginTop="108dp"
+      android:text="@string/ed_add_des"
+      android:textColor="@color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ed_add_price" />
+
+  <EditText
+      android:id="@+id/ed_des"
+      android:layout_width="199dp"
+      android:layout_height="65dp"
+      android:layout_marginTop="100dp"
+      android:ems="10"
+      android:hint="@string/ed_des"
+      android:inputType="textPersonName"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/ed_add_des"
+      app:layout_constraintTop_toBottomOf="@+id/ed_price" />
+
+  <Button
+      android:id="@+id/ed_add_btn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="41dp"
+      android:text="@string/ed_add_btn"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.891"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ed_des"
+      app:layout_constraintVertical_bias="0.323" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,19 +1,17 @@
 package com.example.coffee_lovers_mrcoffee.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
-import com.example.coffee_lovers_mrcoffee.data.models.Customer;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerNavigationActivity;
-import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
 
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
 
 public class StartupActivity extends AppCompatActivity {
 

@@ -1,19 +1,16 @@
 package com.example.coffee_lovers_mrcoffee.ui.customer;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
-import com.example.coffee_lovers_mrcoffee.data.models.Customer;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.ui.SignInActivity;
-
-import java.text.SimpleDateFormat;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 

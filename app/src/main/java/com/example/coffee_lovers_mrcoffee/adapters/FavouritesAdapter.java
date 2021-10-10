@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.coffee_lovers_mrcoffee.Constants;
 import com.example.coffee_lovers_mrcoffee.R;
-import com.example.coffee_lovers_mrcoffee.data.models.Product;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Product;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;

@@ -14,8 +14,9 @@
             android:name=".ui.customer.CustomerNavigationActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.StartupActivity"
-            android:exported="true">
+            android:name=".ui.admin.admin_landing_page"
+            android:exported="true" />
+        <activity android:name=".ui.StartupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,6 +41,17 @@
         <activity
             android:name=".ui.SignUpActivity"
             android:exported="true" />
+        <activity android:name=".ui.admin.DrawerAdmin" />
+        <activity android:name=".ui.admin.ProductUpdatePopup" />
+        <activity android:name=".ui.admin.UpdateProductLayout" />
+        <activity android:name=".ui.admin.UpdateProducts" />
+        <activity android:name=".ui.admin.ShowProduct" />
+        <activity android:name=".ui.admin.MainProduct" />
+        <activity android:name=".ui.admin.DeleteProduct" />
+        <activity android:name=".ui.admin.UpdateProduct" />
+        <activity android:name=".ui.admin.ViewProduct" />
+        <activity android:name=".ui.admin.AddProduct" />
+        <activity android:name=".ui.admin.MainActivity" />
     </application>
 
 </manifest>

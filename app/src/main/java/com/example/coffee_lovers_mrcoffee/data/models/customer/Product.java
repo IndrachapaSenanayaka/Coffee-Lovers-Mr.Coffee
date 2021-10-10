@@ -1,4 +1,4 @@
-package com.example.coffee_lovers_mrcoffee.data.models;
+package com.example.coffee_lovers_mrcoffee.data.models.customer;
 
 public class Product {
 

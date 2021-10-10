@@ -4,7 +4,7 @@ import static com.example.coffee_lovers_mrcoffee.Constants.KEY_COLLECTION_CUSTOM
 
 import androidx.annotation.NonNull;
 
-import com.example.coffee_lovers_mrcoffee.data.models.Customer;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Tasks;

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
-import com.example.coffee_lovers_mrcoffee.data.models.Customer;
+import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.utils.ValidationUtils;
 
