@@ -65,4 +65,8 @@
     <string name="editProduct">Edit Product</string>
     <string name="promotions">Promotions</string>
     <string name="order">Orders</string>
+    <string name="signup_lbl_gender">Gender</string>
+    <string name="signup_txt_bd">Click to pick a date</string>
+    <string name="signup_gender_male">Male</string>
+    <string name="signup_gender_female">Female</string>
 </resources>
