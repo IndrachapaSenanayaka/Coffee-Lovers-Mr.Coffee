@@ -59,7 +59,7 @@ public class ProductUpdateAdapter extends FirebaseRecyclerAdapter<Product, Produ
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.activity_product_update_popup))
-                        .setExpanded(true,1100)
+                        .setExpanded(true,1200)
                         .create();
 
                 View view = dialogPlus.getHolderView();

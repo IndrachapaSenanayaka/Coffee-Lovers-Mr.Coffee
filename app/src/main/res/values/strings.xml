@@ -17,7 +17,6 @@
     <string name="signup_bottom_line">Already have an account?</string>
     <string name="cus_view_head">Hello John!</string>
     <string name="ed_addimage">Add Product Image :</string>
-    <string name="ed_add_name">"Add Product Name : "</string>
     <string name="ed_name">Product Name</string>
     <string name="ed_add_price">Add Product Price :</string>
     <string name="ed_price">Product Price</string>
@@ -65,4 +64,5 @@
     <string name="editProduct">Edit Product</string>
     <string name="promotions">Promotions</string>
     <string name="order">Orders</string>
+    <string name="ed_add_name">Add Product Name :</string>
 </resources>
