@@ -9,6 +9,7 @@ import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
+import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerNavigationActivity;
 import com.example.coffee_lovers_mrcoffee.ui.customer.CustomerProfileActivity;
 
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -34,10 +35,10 @@ public class StartupActivity extends AppCompatActivity {
 
             Intent intent;
 
-            if (customer == null) {
+            if (customer == Customer.NULL) {
                 intent = new Intent(StartupActivity.this, SignInActivity.class);
             } else {
-                intent = new Intent(StartupActivity.this, CustomerProfileActivity.class);
+                intent = new Intent(StartupActivity.this, CustomerNavigationActivity.class);
             }
 
             startActivity(intent);
