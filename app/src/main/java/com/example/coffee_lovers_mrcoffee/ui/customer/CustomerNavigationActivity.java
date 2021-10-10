@@ -3,11 +3,13 @@ package com.example.coffee_lovers_mrcoffee.ui.customer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coffee_lovers_mrcoffee.Container;
 import com.example.coffee_lovers_mrcoffee.R;
+import com.example.coffee_lovers_mrcoffee.data.enums.Gender;
 import com.example.coffee_lovers_mrcoffee.data.models.customer.Customer;
 import com.example.coffee_lovers_mrcoffee.services.AuthService;
 import com.example.coffee_lovers_mrcoffee.ui.SignInActivity;
@@ -23,11 +25,17 @@ public class CustomerNavigationActivity extends AppCompatActivity {
     // disposals
     private Disposable currentUserDisposer;
 
+    // components
+    private TextView txt_welcome;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_navigation);
+
+        // init components
+        txt_welcome = findViewById(R.id.cus_nav_txt_welcome);
 
         // listen for current user changes
         currentUserDisposer = authService
@@ -81,6 +89,13 @@ public class CustomerNavigationActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SignInActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+
+        } else {
+
+            String fName = customer.firstName;
+            String gender = customer.gender == Gender.Male ? "Mr." : "Mrs.";
+            String welcomeText = "Welcome back \n" + gender + " " + fName;
+            txt_welcome.setText(welcomeText);
 
         }
     }
