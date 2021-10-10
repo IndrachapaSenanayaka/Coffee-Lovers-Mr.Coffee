@@ -16,13 +16,21 @@
         <activity
             android:name=".ui.admin.admin_landing_page"
             android:exported="true" />
-        <activity android:name=".ui.StartupActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".ui.StartupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CustomOrder"
+            android:exported="true" />
+        <activity
+            android:name=".CustomerViewPromotion"
+            android:exported="true" />
+        <activity
+            android:name=".AdminViewPromotionsList"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.customer.FavouritesActivity"
             android:exported="true" />
@@ -52,6 +60,18 @@
         <activity android:name=".ui.admin.ViewProduct" />
         <activity android:name=".ui.admin.AddProduct" />
         <activity android:name=".ui.admin.MainActivity" />
+        <activity
+            android:name=".AddPromotions"
+            android:exported="true" />
+        <activity
+            android:name=".AdminViewPromotion"
+            android:exported="true" />
+        <activity
+            android:name=".CustomerViewPromotionsList"
+            android:exported="true" />
+        <activity
+            android:name=".UpdatePromotions"
+            android:exported="true" />
     </application>
 
 </manifest>
