@@ -82,7 +82,11 @@ public class UpdateProductLayout extends AppCompatActivity {
     }
 
     private void txtSearch(String str) {
-        Query query = FirebaseFirestore.getInstance().collection("Product").orderBy("name").startAt(str).endAt(str + "~");
+        Query query = FirebaseFirestore.getInstance()
+                .collection(Constants.KEY_COLLECTION_PRODUCTS)
+                .orderBy("name")
+                .startAt(str)
+                .endAt(str + "~");
         FirestoreRecyclerOptions<Product> options =
                 new FirestoreRecyclerOptions.Builder<Product>()
                         .setQuery(query, snapshot -> {

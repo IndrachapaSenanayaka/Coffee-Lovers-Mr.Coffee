@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.coffee_lovers_mrcoffee.Constants;
 import com.example.coffee_lovers_mrcoffee.R;
 import com.example.coffee_lovers_mrcoffee.data.models.admin.Product;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -41,7 +42,7 @@ public class ProductUpdateAdapter extends FirestoreRecyclerAdapter<Product, Prod
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Product model) {
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
+        holder.price.setText(String.format("%.2f",model.getPrice()));
         holder.description.setText(model.getDescription());
 
         Glide.with(holder.img.getContext()).
@@ -66,7 +67,7 @@ public class ProductUpdateAdapter extends FirestoreRecyclerAdapter<Product, Prod
                 Button btnUpdate = view.findViewById(R.id.btnUpdate);
 
                 name.setText(model.getName());
-                price.setText(model.getPrice());
+                price.setText(Float.toString(model.getPrice()));
                 description.setText(model.getDescription());
 
                 dialogPlus.show();
@@ -76,10 +77,11 @@ public class ProductUpdateAdapter extends FirestoreRecyclerAdapter<Product, Prod
                     public void onClick(View v) {
                         Map<String, Object> map =  new HashMap<>();
                         map.put("name", name.getText().toString());
-                        map.put("price", price.getText().toString());
+                        map.put("price", Float.parseFloat(price.getText().toString()));
                         map.put("description", description.getText().toString());
 
-                        FirebaseFirestore.getInstance().collection("Product")
+                        FirebaseFirestore.getInstance()
+                                .collection(Constants.KEY_COLLECTION_PRODUCTS)
                                 .document(model.id).update(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -91,7 +93,7 @@ public class ProductUpdateAdapter extends FirestoreRecyclerAdapter<Product, Prod
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
-                                    public void onFailure(Exception e) {
+                                    public void onFailure(Exception exxx) {
                                         Toast.makeText(holder.name.getContext(), "Error while updating", Toast.LENGTH_LONG).show();
                                         dialogPlus.dismiss();
                                     }
@@ -111,7 +113,8 @@ public class ProductUpdateAdapter extends FirestoreRecyclerAdapter<Product, Prod
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseFirestore.getInstance().collection("Product")
+                        FirebaseFirestore.getInstance()
+                                .collection(Constants.KEY_COLLECTION_PRODUCTS)
                                 .document(model.id).delete();
                     }
                 });

@@ -180,7 +180,7 @@ public class AddProduct extends AppCompatActivity {
 
                                             //Take inputs from the user and assigning them to this instance (pdt) of the Product...
                                             pdt.setName(pName.getText().toString().trim());
-                                            pdt.setPrice(pPrice.getText().toString().trim());
+                                            pdt.setPrice(Float.parseFloat(pPrice.getText().toString().trim()));
                                             pdt.setDescription(pDescription.getText().toString().trim());
                                             pdt.setImage(uri.toString());
 

@@ -76,7 +76,9 @@ public class ShowProduct extends AppCompatActivity {
     }
 
     private void txtSearch(String str) {
-        Query query = FirebaseFirestore.getInstance().collection("Product")
+        Query query = FirebaseFirestore
+                .getInstance()
+                .collection(Constants.KEY_COLLECTION_PRODUCTS)
                 .orderBy("name")
                 .startAt(str)
                 .endAt(str + "~");

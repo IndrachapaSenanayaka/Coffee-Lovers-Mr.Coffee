@@ -28,7 +28,7 @@ public class MainAdapterProduct extends FirestoreRecyclerAdapter<Product, MainAd
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Product model) {
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
+        holder.price.setText(String.format("%.2f",model.getPrice()));
         holder.description.setText(model.getDescription());
 
         Glide.with(holder.img.getContext()).
